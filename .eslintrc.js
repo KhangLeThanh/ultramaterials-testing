@@ -23,7 +23,13 @@ module.exports = {
     },
   },
   rules: {
-    'prettier/prettier': ['error', prettierOptions],
+    'prettier/prettier': 
+    ['error', prettierOptions, {
+      "trailingComma": "es5",
+      "singleQuote": true,
+      "printWidth": 120,
+    }],
+    'linebreak-style': ["error", "windows"],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
     'comma-dangle': [2, 'always-multiline'],
@@ -79,6 +85,9 @@ module.exports = {
     'redux-saga/yield-effects': 2,
     'require-yield': 0,
   },
+  "plugins": [
+    "prettier"
+  ],
   settings: {
     'import/resolver': {
       webpack: {
