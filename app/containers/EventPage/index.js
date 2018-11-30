@@ -20,9 +20,14 @@ import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export class EventPage extends React.Component {
+  state = {
+    title: '',,
+  };
+
   render() {
     return (
       <div>
+            <img />
         <FormattedMessage {...messages.header} />
       </div>
     );
