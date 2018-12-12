@@ -1,3 +1,4 @@
+
 const fs = require('fs');
 const path = require('path');
 
@@ -32,7 +33,7 @@ module.exports = {
         printWidth: 120,
       },
     ],
-    'linebreak-style': ['error', 'windows'],
+    // 'linebreak-style': ['error', 'windows'],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
     'comma-dangle': [2, 'always-multiline'],
@@ -88,7 +89,6 @@ module.exports = {
     'redux-saga/yield-effects': 2,
     'require-yield': 0,
   },
-  plugins: ['prettier', 'redux-saga'],
   settings: {
     'import/resolver': {
       webpack: {
