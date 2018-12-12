@@ -23,6 +23,7 @@ import Menu from '@material-ui/core/Menu';
 import injectReducer from 'utils/injectReducer';
 import makeSelectHeader from './selectors';
 import reducer from './reducer';
+import './style.css';
 
 const styles = {
   root: {
@@ -63,7 +64,7 @@ export class Header extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className="bar">
           <Toolbar>
             <IconButton
               className={classes.menuButton}
