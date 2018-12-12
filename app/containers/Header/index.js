@@ -63,18 +63,20 @@ export class Header extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar
+          position="static"
+          title={
+            <img
+              alt="Ultrahack logo"
+              src="https://ultrahack.org/images/android-icon-192x192.png"
+            />
+          }
+        >
           <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              Photos
+              ULTRAHACK
             </Typography>
+
             {auth && (
               <div>
                 <IconButton
@@ -104,6 +106,13 @@ export class Header extends React.Component {
                 </Menu>
               </div>
             )}
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Menu"
+            >
+              <MenuIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
       </div>
