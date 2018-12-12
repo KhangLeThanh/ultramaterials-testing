@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
@@ -155,4 +154,3 @@ This project is licensed under the MIT license, Copyright (c) 2018 Maximilian
 Stoiber. For more information see `LICENSE.md`.
 =======
 # ULTRAMATERIALS
->>>>>>> 94c1b5f38852f1172c0304a0156bcce2afa8b03b
