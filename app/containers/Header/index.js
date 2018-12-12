@@ -23,6 +23,7 @@ import Menu from '@material-ui/core/Menu';
 import injectReducer from 'utils/injectReducer';
 import makeSelectHeader from './selectors';
 import reducer from './reducer';
+import './style.css';
 
 const styles = {
   root: {
@@ -63,15 +64,7 @@ export class Header extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar
-          position="static"
-          title={
-            <img
-              alt="Ultrahack logo"
-              src="https://ultrahack.org/images/android-icon-192x192.png"
-            />
-          }
-        >
+        <AppBar position="static" className="bar">
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.grow}>
               ULTRAHACK
