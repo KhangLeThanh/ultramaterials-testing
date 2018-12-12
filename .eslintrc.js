@@ -1,3 +1,4 @@
+
 const fs = require('fs');
 const path = require('path');
 
@@ -88,7 +89,6 @@ module.exports = {
     'redux-saga/yield-effects': 2,
     'require-yield': 0,
   },
-  plugins: ['prettier', 'redux-saga'],
   settings: {
     'import/resolver': {
       webpack: {
