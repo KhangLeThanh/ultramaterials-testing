@@ -14,18 +14,15 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 
 import injectReducer from 'utils/injectReducer';
 import makeSelectHeader from './selectors';
 import reducer from './reducer';
-import './style.css';
 
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -36,69 +33,23 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-};
+  loginButton: {
+    background: theme.palette.secondary,
+  },
+});
 
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
-  state = {
-    auth: true,
-    anchorEl: null,
-  };
-
-  handleChange = event => {
-    this.setState({ auth: event.target.checked });
-  };
-
-  handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  };
-
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
-    const open = Boolean(anchorEl);
-
     return (
       <div className={classes.root}>
-        <AppBar position="static" className="bar">
+        <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              ULTRAHACK
-            </Typography>
-
-            {auth && (
-              <div>
-                <IconButton
-                  aria-owns={open ? 'menu-appbar' : undefined}
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={this.handleClose}
-                >
-                  <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                </Menu>
-              </div>
-            )}
+            <img
+              src="https://ultrahack.org/images/uh-red.png"
+              alt="Ultrahack logo"
+            />
             <IconButton
               className={classes.menuButton}
               color="inherit"
@@ -106,6 +57,18 @@ export class Header extends React.Component {
             >
               <MenuIcon />
             </IconButton>
+            <Typography variant="h6" color="inherit">
+              Join
+            </Typography>
+            <Typography variant="h6" color="inherit">
+              Challenges
+            </Typography>
+            <Typography variant="h6" color="inherit">
+              About
+            </Typography>
+            <Button color="inherit" className={classes.loginButton}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
@@ -114,7 +77,6 @@ export class Header extends React.Component {
 }
 
 Header.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
