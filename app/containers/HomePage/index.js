@@ -14,12 +14,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
-import { Typography, Grid, Button } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
     width: 'inherit',
-    overflowX: 'hidden',
   },
   button: {
     margin: theme.spacing.unit,
@@ -34,7 +33,6 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 4,
-    marginBottom: theme.spacing.unit * 2,
     textAlign: 'left',
     color: theme.palette.text.secondary,
   },
@@ -80,83 +78,73 @@ export class HomePage extends React.PureComponent {
         </div>
         <div style={{ backgroundColor: '#eff0f1' }}>
           <div className={classes.grid}>
-            <Grid container spacing={16}>
-              <Grid item>
-                <div className={classes.paper}>
-                  <Typography variant="h4" gutterBottom>
-                    ARE YOU READY TO GET ULTRAHACKED?
-                  </Typography>
-                  <Typography paragraph>
-                    We believe hackers have the power to change the world – and
-                    find solutions to the biggest challenges in our time. But to
-                    make this happen, we need to stand together. Our mission is
-                    to build a community where the best talent and leading
-                    industry partners could meet and collaborate towards future
-                    innovations.
-                  </Typography>
-                  <Typography paragraph>
-                    This is why Ultrahack goes beyond one event.
-                  </Typography>
-                  <Typography paragraph>
-                    Innovation platform – Sign up to our platform to submit your
-                    hackathon project, find new team members and get feedback.
-                    It’s a meeting point for everybody: hackers, mentors and
-                    industry partners. Sign up here.
-                  </Typography>
-                  <Typography paragraph>
-                    Hackathon – We organize several hackathons across multiple
-                    industries each year where best projects and teams are
-                    selected in collaboration with our partners.
-                  </Typography>
-                  <Typography paragraph>
-                    Accelerator – To make sure there is life after Ultrahack we
-                    have decided to collaborate with accelerators including
-                    Nestholma Accelerator that offers investments to promising
-                    Ultrahack teams. Your team can now continue its project with
-                    dedicated coaches in can-do spirit.
-                  </Typography>
-                  <Typography paragraph>
-                    Long development runway for projects – Unlike in traditional
-                    hackathons where coding starts at the event, we at Ultrahack
-                    encourage teams to start working well before the event and
-                    to get valuable feedback from our challenge partners along
-                    the way. No need to wait until the hackathon weekend, start
-                    to work on your project now!
-                  </Typography>
-                </div>
-              </Grid>
-            </Grid>
+            <div className={classes.paper}>
+              <Typography variant="h4" gutterBottom>
+                ARE YOU READY TO GET ULTRAHACKED?
+              </Typography>
+              <Typography paragraph>
+                We believe hackers have the power to change the world – and find
+                solutions to the biggest challenges in our time. But to make
+                this happen, we need to stand together. Our mission is to build
+                a community where the best talent and leading industry partners
+                could meet and collaborate towards future innovations.
+              </Typography>
+              <Typography paragraph>
+                This is why Ultrahack goes beyond one event.
+              </Typography>
+              <Typography paragraph>
+                Innovation platform – Sign up to our platform to submit your
+                hackathon project, find new team members and get feedback. It’s
+                a meeting point for everybody: hackers, mentors and industry
+                partners. Sign up here.
+              </Typography>
+              <Typography paragraph>
+                Hackathon – We organize several hackathons across multiple
+                industries each year where best projects and teams are selected
+                in collaboration with our partners.
+              </Typography>
+              <Typography paragraph>
+                Accelerator – To make sure there is life after Ultrahack we have
+                decided to collaborate with accelerators including Nestholma
+                Accelerator that offers investments to promising Ultrahack
+                teams. Your team can now continue its project with dedicated
+                coaches in can-do spirit.
+              </Typography>
+              <Typography paragraph>
+                Long development runway for projects – Unlike in traditional
+                hackathons where coding starts at the event, we at Ultrahack
+                encourage teams to start working well before the event and to
+                get valuable feedback from our challenge partners along the way.
+                No need to wait until the hackathon weekend, start to work on
+                your project now!
+              </Typography>
+            </div>
           </div>
         </div>
         <div style={{ backgroundColor: '#ffff' }}>
           <div className={classes.grid}>
-            <Grid container spacing={16}>
-              <Grid item>
-                <div className={classes.paper}>
-                  <Typography variant="h4" gutterBottom>
-                    HACK CHALLENGES FROM LEADING INDUSTRIES
-                  </Typography>
-                  <Typography paragraph>
-                    Leading industries, public sector organizations and NGO’s
-                    present their challenges for you to hack. Kick off your
-                    project on our platform during the pre-game period and
-                    continue to the 48-hour hackathon event.
-                  </Typography>
-                  <Typography paragraph>
-                    The pre-game period gives you more time to develop your
-                    solution, get feedback, recruit new team members and get
-                    expert mentoring. At the hackathon event the pre-selected
-                    teams have 48 hours to develop their solutions
-                    round-by-round and pitch them to partner judges and
-                    investors.
-                  </Typography>
-                  <Typography paragraph>
-                    Check out challenges and prizes, register to the platform
-                    and apply to the hackathon of your choice!
-                  </Typography>
-                </div>
-              </Grid>
-            </Grid>
+            <div className={classes.paper}>
+              <Typography variant="h4" gutterBottom>
+                HACK CHALLENGES FROM LEADING INDUSTRIES
+              </Typography>
+              <Typography paragraph>
+                Leading industries, public sector organizations and NGO’s
+                present their challenges for you to hack. Kick off your project
+                on our platform during the pre-game period and continue to the
+                48-hour hackathon event.
+              </Typography>
+              <Typography paragraph>
+                The pre-game period gives you more time to develop your
+                solution, get feedback, recruit new team members and get expert
+                mentoring. At the hackathon event the pre-selected teams have 48
+                hours to develop their solutions round-by-round and pitch them
+                to partner judges and investors.
+              </Typography>
+              <Typography paragraph>
+                Check out challenges and prizes, register to the platform and
+                apply to the hackathon of your choice!
+              </Typography>
+            </div>
           </div>
         </div>
       </div>
