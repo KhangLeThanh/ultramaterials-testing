@@ -13,7 +13,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -36,39 +35,57 @@ const styles = theme => ({
   loginButton: {
     background: theme.palette.secondary,
   },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+  sectionMobile: {},
 });
 
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
+  state = {
+    auth: false,
+    mobile: false,
+  };
+
   render() {
     const { classes } = this.props;
+    const { auth, mobile } = this.state;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.appBar}>
           <Toolbar>
-            <img
-              src="https://ultrahack.org/images/uh-red.png"
-              alt="Ultrahack logo"
-            />
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit">
-              Join
-            </Typography>
-            <Typography variant="h6" color="inherit">
-              Challenges
-            </Typography>
-            <Typography variant="h6" color="inherit">
-              About
-            </Typography>
-            <Button color="inherit" className={classes.loginButton}>
-              Login
-            </Button>
+            <div className={classes.sectionDesktop}>
+              <img
+                src="https://ultrahack.org/images/uh-red.png"
+                alt="Ultrahack logo"
+                className={classes.sectionDesktop}
+              />
+              <Button color="inherit">Partnering</Button>
+              <Button color="inherit">Participate</Button>
+              <Button color="inherit">Volunteering</Button>
+              <Button color="inherit">Challenges</Button>
+              <Button color="inherit">About</Button>
+            </div>
+
+            <div className={classes.grow} />
+            {auth ? null : (
+              <Button color="inherit" className={classes.loginButton}>
+                Login
+              </Button>
+            )}
+            {mobile && (
+              <IconButton
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="Menu"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
           </Toolbar>
         </AppBar>
       </div>
