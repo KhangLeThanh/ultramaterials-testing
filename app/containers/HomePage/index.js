@@ -19,7 +19,6 @@ import { Typography, Grid, Button } from '@material-ui/core';
 const styles = theme => ({
   root: {
     width: 'inherit',
-    overflowX: 'hidden',
   },
   button: {
     margin: theme.spacing.unit,
@@ -80,7 +79,7 @@ export class HomePage extends React.PureComponent {
         </div>
         <div style={{ backgroundColor: '#eff0f1' }}>
           <div className={classes.grid}>
-            <Grid container spacing={16}>
+            <Grid container spacing={0}>
               <Grid item>
                 <div className={classes.paper}>
                   <Typography variant="h4" gutterBottom>
@@ -130,7 +129,7 @@ export class HomePage extends React.PureComponent {
         </div>
         <div style={{ backgroundColor: '#ffff' }}>
           <div className={classes.grid}>
-            <Grid container spacing={16}>
+            <Grid container spacing={0}>
               <Grid item>
                 <div className={classes.paper}>
                   <Typography variant="h4" gutterBottom>
