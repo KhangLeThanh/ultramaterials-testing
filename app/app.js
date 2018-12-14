@@ -17,6 +17,7 @@ import history from 'utils/history';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from 'utils/theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import './style.css';
 
 // Import root app
 import App from 'containers/App';
