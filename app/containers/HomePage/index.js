@@ -19,6 +19,7 @@ import { Typography, Grid, Button } from '@material-ui/core';
 const styles = theme => ({
   root: {
     width: 'inherit',
+    overflowX: 'hidden',
   },
   button: {
     margin: theme.spacing.unit,
