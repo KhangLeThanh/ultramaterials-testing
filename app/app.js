@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import history from 'utils/history';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { theme } from 'utils/theme';
+import theme from 'utils/theme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 // Import root app
