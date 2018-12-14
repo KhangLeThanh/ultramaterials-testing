@@ -3,6 +3,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export default createMuiTheme({
   typography: {
     useNextVariants: true,
+    h4: {
+      textAlign: 'center',
+    },
   },
   palette: {
     type: 'light',
