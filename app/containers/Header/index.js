@@ -25,46 +25,43 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
   },
   grow: {
     flexGrow: 1,
   },
-  appBar: {
-    backgroundColor: '#fff',
+  logo: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
   },
+  appBar: {},
   menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
+    display: 'block',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
   loginButton: {
     background: theme.palette.secondary,
   },
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'block',
     },
   },
-  sectionMobile: {},
 });
 
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
   state = {
     auth: false,
-    mobile: false,
   };
 
   render() {
     const { classes } = this.props;
-    const { auth, mobile } = this.state;
+    const { auth } = this.state;
     return (
       <div className={classes.root}>
         <AppBar position="static">
@@ -72,7 +69,7 @@ export class Header extends React.Component {
             <img
               src="https://ultrahack.org/images/uh-red.png"
               alt="Ultrahack logo"
-              className={classes.sectionDesktop}
+              className={classes.logo}
             />
             <div className={classes.sectionDesktop}>
               <Button>Partnering</Button>
@@ -81,20 +78,13 @@ export class Header extends React.Component {
               <Button>Challenges</Button>
               <Button>About</Button>
             </div>
-
             <div className={classes.grow} />
             {auth ? null : (
               <Button className={classes.loginButton}>Login</Button>
             )}
-            {mobile && (
-              <IconButton
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="Menu"
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
+            <IconButton className={classes.menuButton} aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
       </div>
