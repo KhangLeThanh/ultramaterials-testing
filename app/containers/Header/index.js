@@ -24,6 +24,14 @@ import reducer from './reducer';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   },
   grow: {
     flexGrow: 1,
@@ -37,7 +45,7 @@ const styles = theme => ({
   },
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'block',
     },
   },
@@ -58,12 +66,12 @@ export class Header extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
+            <img
+              src="https://ultrahack.org/images/uh-red.png"
+              alt="Ultrahack logo"
+              className={classes.sectionDesktop}
+            />
             <div className={classes.sectionDesktop}>
-              <img
-                src="https://ultrahack.org/images/uh-red.png"
-                alt="Ultrahack logo"
-                className={classes.sectionDesktop}
-              />
               <Button color="inherit">Partnering</Button>
               <Button color="inherit">Participate</Button>
               <Button color="inherit">Volunteering</Button>
