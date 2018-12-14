@@ -51,6 +51,11 @@ const styles = theme => ({
       position: 'center',
       size: ['100%', '100%'],
     },
+    backgroundBlendMode: 'saturation',
+  },
+  redBox: {
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.secondary.contrastText,
   },
 });
 
@@ -79,7 +84,7 @@ export class HomePage extends React.PureComponent {
             </Button>
           </div>
         </div>
-        <div style={{ backgroundColor: '#eff0f1' }}>
+        <div className={classes.redBox}>
           <div className={classes.grid}>
             <Grid container spacing={16}>
               <Grid item>
