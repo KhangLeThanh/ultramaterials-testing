@@ -29,11 +29,13 @@ import './style.css';
 const styles = theme => ({
   root: {
     width: 'inherit',
-    overflowX: 'hidden',
   },
   grid: {
     maxWidth: 1280,
     margin: '0 auto',
+  },
+  gridContainer: {
+    padding: '0px 8px',
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -81,114 +83,118 @@ export class ChallengePage extends React.Component {
             alt="Challenge header"
             src={this.state.header}
           />
-          <Grid container spacing={16}>
-            <Grid item xs={12} sm={3}>
-              <Paper className={classes.paper}>
-                <Typography variant="h4">Info</Typography>
-                <hr />
-                <Typography variant="body2">
-                  <i className="far fa-clock" /> Deadline:{' '}
-                  {this.state.info.deadline}
-                </Typography>
-                <Typography variant="body2">
-                  <i className="far fa-calendar-alt" /> {this.state.info.starts}
-                </Typography>
-                <Typography variant="body2">
-                  <i className="fas fa-map-marker-alt" />{' '}
-                  {this.state.info.location}
-                </Typography>
-                <Typography variant="body2">
-                  <i className="fas fa-trophy" /> {this.state.info.prize}
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <Paper className={classes.box}>
-                <AppBar position="static">
-                  <Tabs value={value} onChange={this.handleChange}>
-                    <Tab label="Details" />
-                    <Tab label="Resources" />
-                    <Tab label="FAQ" />
-                  </Tabs>
-                </AppBar>
-                {value === 0 && (
-                  <TabContainer>
-                    <Typography>
-                      Policymaker resilient, targeted entrepreneur rubric;
-                      fairness do-gooder strategize social innovation
-                      low-hanging fruit NGO; natural resources targeted
-                      empathetic. To, benefit corporation efficient; optimism
-                      boots on the ground mobilize collaborative cities NGO
-                      scalable circular peaceful collective impact social
-                      capital. Society, shared value; framework agile big data
-                      social entrepreneur support humanitarian then, the program
-                      areas collaborative cities the resistance catalyze.
-                      Innovation, empower communities collaborate co-creation
-                      when communities. Innovate; collaborative cities
-                      unprecedented challenge when silo segmentation replicable
-                      social innovation white paper triple bottom line.
-                      Unprecedented challenge invest policymaker; efficient
-                      citizen-centered; engaging fairness.
-                    </Typography>
+          <div className={classes.gridContainer}>
+            <Grid container spacing={16}>
+              <Grid item xs={12} sm={3}>
+                <Paper className={classes.paper}>
+                  <Typography variant="h4">Info</Typography>
+                  <hr />
+                  <Typography variant="body2">
+                    <i className="far fa-clock" /> Deadline:{' '}
+                    {this.state.info.deadline}
+                  </Typography>
+                  <Typography variant="body2">
+                    <i className="far fa-calendar-alt" />{' '}
+                    {this.state.info.starts}
+                  </Typography>
+                  <Typography variant="body2">
+                    <i className="fas fa-map-marker-alt" />{' '}
+                    {this.state.info.location}
+                  </Typography>
+                  <Typography variant="body2">
+                    <i className="fas fa-trophy" /> {this.state.info.prize}
+                  </Typography>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={9}>
+                <Paper className={classes.box}>
+                  <AppBar position="static">
+                    <Tabs value={value} onChange={this.handleChange}>
+                      <Tab label="Details" />
+                      <Tab label="Resources" />
+                      <Tab label="FAQ" />
+                    </Tabs>
+                  </AppBar>
+                  {value === 0 && (
+                    <TabContainer>
+                      <Typography>
+                        Policymaker resilient, targeted entrepreneur rubric;
+                        fairness do-gooder strategize social innovation
+                        low-hanging fruit NGO; natural resources targeted
+                        empathetic. To, benefit corporation efficient; optimism
+                        boots on the ground mobilize collaborative cities NGO
+                        scalable circular peaceful collective impact social
+                        capital. Society, shared value; framework agile big data
+                        social entrepreneur support humanitarian then, the
+                        program areas collaborative cities the resistance
+                        catalyze. Innovation, empower communities collaborate
+                        co-creation when communities. Innovate; collaborative
+                        cities unprecedented challenge when silo segmentation
+                        replicable social innovation white paper triple bottom
+                        line. Unprecedented challenge invest policymaker;
+                        efficient citizen-centered; engaging fairness.
+                      </Typography>
 
-                    <Typography>
-                      Issue outcomes, human-centered, overcome injustice
-                      milestones; accessibility white paper human-centered. A
-                      outcomes leverage leverage innovate outcomes data. Vibrant
-                      vibrant synergy; inspiring ecosystem empower inspiring,
-                      do-gooder inspiring, capacity building, living a fully
-                      ethical life the resistance technology.
-                    </Typography>
-                    <Typography>
-                      We must stand up incubator collective impact parse
-                      compelling but. Compelling state of play communities
-                      granular equal opportunity empathetic framework bandwidth.
-                      Communities social entrepreneur, transparent, paradigm,
-                      rubric social entrepreneur empathetic change-makers
-                      granular state of play scalable. Systems thinking,
-                      optimism grit do-gooder replicable preliminary thinking.
-                      Expose the truth, to save the world shared unit of
-                      analysis challenges and opportunities commitment activate
-                      movements shared unit of analysis resist changemaker.
-                      Families humanitarian incubator unprecedented challenge;
-                      triple bottom line, technology invest, society equal
-                      opportunity segmentation progress scale and impact benefit
-                      corporation.
-                    </Typography>
-                  </TabContainer>
-                )}
-                {value === 1 && (
-                  <TabContainer>
-                    <Typography>
-                      {this.state.resources}
-                      Issue outcomes, human-centered, overcome injustice
-                      milestones; accessibility white paper human-centered. A
-                      outcomes leverage leverage innovate outcomes data. Vibrant
-                      vibrant synergy; inspiring ecosystem empower inspiring,
-                      do-gooder inspiring, capacity building, living a fully
-                      ethical life the resistance technology.
-                    </Typography>
-                  </TabContainer>
-                )}
-                {value === 2 && (
-                  <TabContainer>
-                    <Typography>
-                      {this.state.faq}
-                      Issue outcomes, human-centered, overcome injustice
-                      milestones; accessibility white paper human-centered. A
-                      outcomes leverage leverage innovate outcomes data. Vibrant
-                      vibrant synergy; inspiring ecosystem empower inspiring,
-                      do-gooder inspiring, capacity building, living a fully
-                      ethical life the resistance technology.
-                    </Typography>
-                  </TabContainer>
-                )}
-              </Paper>
-              <Paper className={classes.paper}>
-                <Typography variant="h4">Comments</Typography>
-              </Paper>
+                      <Typography>
+                        Issue outcomes, human-centered, overcome injustice
+                        milestones; accessibility white paper human-centered. A
+                        outcomes leverage leverage innovate outcomes data.
+                        Vibrant vibrant synergy; inspiring ecosystem empower
+                        inspiring, do-gooder inspiring, capacity building,
+                        living a fully ethical life the resistance technology.
+                      </Typography>
+                      <Typography>
+                        We must stand up incubator collective impact parse
+                        compelling but. Compelling state of play communities
+                        granular equal opportunity empathetic framework
+                        bandwidth. Communities social entrepreneur, transparent,
+                        paradigm, rubric social entrepreneur empathetic
+                        change-makers granular state of play scalable. Systems
+                        thinking, optimism grit do-gooder replicable preliminary
+                        thinking. Expose the truth, to save the world shared
+                        unit of analysis challenges and opportunities commitment
+                        activate movements shared unit of analysis resist
+                        changemaker. Families humanitarian incubator
+                        unprecedented challenge; triple bottom line, technology
+                        invest, society equal opportunity segmentation progress
+                        scale and impact benefit corporation.
+                      </Typography>
+                    </TabContainer>
+                  )}
+                  {value === 1 && (
+                    <TabContainer>
+                      <Typography>
+                        {this.state.resources}
+                        Issue outcomes, human-centered, overcome injustice
+                        milestones; accessibility white paper human-centered. A
+                        outcomes leverage leverage innovate outcomes data.
+                        Vibrant vibrant synergy; inspiring ecosystem empower
+                        inspiring, do-gooder inspiring, capacity building,
+                        living a fully ethical life the resistance technology.
+                      </Typography>
+                    </TabContainer>
+                  )}
+                  {value === 2 && (
+                    <TabContainer>
+                      <Typography>
+                        {this.state.faq}
+                        Issue outcomes, human-centered, overcome injustice
+                        milestones; accessibility white paper human-centered. A
+                        outcomes leverage leverage innovate outcomes data.
+                        Vibrant vibrant synergy; inspiring ecosystem empower
+                        inspiring, do-gooder inspiring, capacity building,
+                        living a fully ethical life the resistance technology.
+                      </Typography>
+                    </TabContainer>
+                  )}
+                </Paper>
+                <Paper className={classes.paper}>
+                  <Typography variant="h4">Comments</Typography>
+                </Paper>
+              </Grid>
             </Grid>
-          </Grid>
+          </div>
+
           {/* <FormattedMessage {...messages.header} /> */}
         </div>
       </div>

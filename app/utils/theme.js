@@ -9,8 +9,18 @@ export default createMuiTheme({
   },
   palette: {
     type: 'light',
-    primary: { main: '#424242', contrastText: '#ffffff' },
-    secondary: { main: '#DA0035', contrastText: '#ffffff' },
+    primary: {
+      light: '#F1F1F1',
+      main: '#262626',
+      dark: '#171717',
+      contrastText: '#F1F1F1',
+    },
+    secondary: {
+      light: '',
+      main: '#CF3141',
+      dark: '',
+      contrastText: '#ffffff',
+    },
   },
   themeName: 'Ultrahack theme',
   shadows: ['none'],
