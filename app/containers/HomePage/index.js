@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
-import { Typography, Button } from '@material-ui/core';
+import { Typography, Button, Grid } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -34,7 +34,7 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 4,
     textAlign: 'left',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
   },
   homeBanner: {
     height: 500,
@@ -51,8 +51,14 @@ const styles = theme => ({
     backgroundBlendMode: 'saturation',
   },
   redBox: {
-    backgroundColor: theme.palette.secondary.dark,
-    color: theme.palette.secondary.contrastText,
+    backgroundColor: 'transparent',
+    paddingTop: theme.spacing.unit * 12,
+    paddingBottom: theme.spacing.unit * 14,
+  },
+  lightBox: {
+    paddingTop: theme.spacing.unit * 12,
+    paddingBottom: theme.spacing.unit * 14,
+    backgroundColor: 'transparent',
   },
 });
 
@@ -83,50 +89,55 @@ export class HomePage extends React.PureComponent {
         </div>
         <div className={classes.redBox}>
           <div className={classes.grid}>
-            <div className={classes.paper}>
-              <Typography variant="h4" gutterBottom>
-                ARE YOU READY TO GET ULTRAHACKED?
-              </Typography>
-              <Typography paragraph>
-                We believe hackers have the power to change the world – and find
-                solutions to the biggest challenges in our time. But to make
-                this happen, we need to stand together. Our mission is to build
-                a community where the best talent and leading industry partners
-                could meet and collaborate towards future innovations.
-              </Typography>
-              <Typography paragraph>
-                This is why Ultrahack goes beyond one event.
-              </Typography>
-              <Typography paragraph>
-                Innovation platform – Sign up to our platform to submit your
-                hackathon project, find new team members and get feedback. It’s
-                a meeting point for everybody: hackers, mentors and industry
-                partners. Sign up here.
-              </Typography>
-              <Typography paragraph>
-                Hackathon – We organize several hackathons across multiple
-                industries each year where best projects and teams are selected
-                in collaboration with our partners.
-              </Typography>
-              <Typography paragraph>
-                Accelerator – To make sure there is life after Ultrahack we have
-                decided to collaborate with accelerators including Nestholma
-                Accelerator that offers investments to promising Ultrahack
-                teams. Your team can now continue its project with dedicated
-                coaches in can-do spirit.
-              </Typography>
-              <Typography paragraph>
-                Long development runway for projects – Unlike in traditional
-                hackathons where coding starts at the event, we at Ultrahack
-                encourage teams to start working well before the event and to
-                get valuable feedback from our challenge partners along the way.
-                No need to wait until the hackathon weekend, start to work on
-                your project now!
-              </Typography>
-            </div>
+            <Grid container spacing={0}>
+              <Grid item>
+                <div className={classes.paper}>
+                  <Typography variant="h4" gutterBottom color="inherit">
+                    ARE YOU READY TO GET ULTRAHACKED?
+                  </Typography>
+                  <Typography paragraph>
+                    We believe hackers have the power to change the world – and
+                    find solutions to the biggest challenges in our time. But to
+                    make this happen, we need to stand together. Our mission is
+                    to build a community where the best talent and leading
+                    industry partners could meet and collaborate towards future
+                    innovations.
+                  </Typography>
+                  <Typography paragraph>
+                    This is why Ultrahack goes beyond one event.
+                  </Typography>
+                  <Typography paragraph>
+                    Innovation platform – Sign up to our platform to submit your
+                    hackathon project, find new team members and get feedback.
+                    It’s a meeting point for everybody: hackers, mentors and
+                    industry partners. Sign up here.
+                  </Typography>
+                  <Typography paragraph>
+                    Hackathon – We organize several hackathons across multiple
+                    industries each year where best projects and teams are
+                    selected in collaboration with our partners.
+                  </Typography>
+                  <Typography paragraph>
+                    Accelerator – To make sure there is life after Ultrahack we
+                    have decided to collaborate with accelerators including
+                    Nestholma Accelerator that offers investments to promising
+                    Ultrahack teams. Your team can now continue its project with
+                    dedicated coaches in can-do spirit.
+                  </Typography>
+                  <Typography paragraph>
+                    Long development runway for projects – Unlike in traditional
+                    hackathons where coding starts at the event, we at Ultrahack
+                    encourage teams to start working well before the event and
+                    to get valuable feedback from our challenge partners along
+                    the way. No need to wait until the hackathon weekend, start
+                    to work on your project now!
+                  </Typography>
+                </div>
+              </Grid>
+            </Grid>
           </div>
         </div>
-        <div style={{ backgroundColor: '#ffff' }}>
+        <div className={classes.lightBox}>
           <div className={classes.grid}>
             <div className={classes.paper}>
               <Typography variant="h4" gutterBottom>
