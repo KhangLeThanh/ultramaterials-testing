@@ -25,6 +25,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     width: 'auto',
+    backgroundColor: 'transparent',
   },
   grow: {
     flexGrow: 1,
@@ -35,7 +36,12 @@ const styles = theme => ({
       display: 'block',
     },
   },
-  appBar: {},
+  toolBar: {
+    backgroundColor: 'transparent',
+  },
+  appBar: {
+    backgroundColor: 'transparent',
+  },
   menuButton: {
     display: 'block',
     [theme.breakpoints.up('md')]: {
@@ -64,8 +70,8 @@ export class Header extends React.Component {
     const { auth } = this.state;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar className={classes.appBar}>
+        <AppBar position="static" className={classes.appBar}>
+          <Toolbar className={classes.toolBar}>
             <img
               src="https://ultrahack.org/images/uh-red.png"
               alt="Ultrahack logo"
