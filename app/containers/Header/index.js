@@ -36,6 +36,9 @@ const styles = theme => ({
   grow: {
     flexGrow: 1,
   },
+  appBar: {
+    backgroundColor: '#fff',
+  },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
@@ -64,26 +67,24 @@ export class Header extends React.Component {
     const { auth, mobile } = this.state;
     return (
       <div className={classes.root}>
-        <AppBar position="static" className={classes.appBar}>
-          <Toolbar>
+        <AppBar position="static">
+          <Toolbar className={classes.appBar}>
             <img
               src="https://ultrahack.org/images/uh-red.png"
               alt="Ultrahack logo"
               className={classes.sectionDesktop}
             />
             <div className={classes.sectionDesktop}>
-              <Button color="inherit">Partnering</Button>
-              <Button color="inherit">Participate</Button>
-              <Button color="inherit">Volunteering</Button>
-              <Button color="inherit">Challenges</Button>
-              <Button color="inherit">About</Button>
+              <Button>Partnering</Button>
+              <Button>Participate</Button>
+              <Button>Volunteering</Button>
+              <Button>Challenges</Button>
+              <Button>About</Button>
             </div>
 
             <div className={classes.grow} />
             {auth ? null : (
-              <Button color="inherit" className={classes.loginButton}>
-                Login
-              </Button>
+              <Button className={classes.loginButton}>Login</Button>
             )}
             {mobile && (
               <IconButton
