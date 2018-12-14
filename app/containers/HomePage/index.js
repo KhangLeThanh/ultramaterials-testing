@@ -34,7 +34,7 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 2,
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
   },
   homeBanner: {
@@ -126,36 +126,36 @@ export class HomePage extends React.PureComponent {
               </Grid>
             </Grid>
           </div>
-          <div style={{ backgroundColor: '#ffff' }}>
-            <div className={classes.grid}>
-              <Grid container spacing={16}>
-                <Grid item>
-                  <div className={classes.paper}>
-                    <Typography variant="h4" gutterBottom>
-                      HACK CHALLENGES FROM LEADING INDUSTRIES
-                    </Typography>
-                    <Typography paragraph>
-                      Leading industries, public sector organizations and NGO’s
-                      present their challenges for you to hack. Kick off your
-                      project on our platform during the pre-game period and
-                      continue to the 48-hour hackathon event.
-                    </Typography>
-                    <Typography paragraph>
-                      The pre-game period gives you more time to develop your
-                      solution, get feedback, recruit new team members and get
-                      expert mentoring. At the hackathon event the pre-selected
-                      teams have 48 hours to develop their solutions
-                      round-by-round and pitch them to partner judges and
-                      investors.
-                    </Typography>
-                    <Typography paragraph>
-                      Check out challenges and prizes, register to the platform
-                      and apply to the hackathon of your choice!
-                    </Typography>
-                  </div>
-                </Grid>
+        </div>
+        <div style={{ backgroundColor: '#ffff' }}>
+          <div className={classes.grid}>
+            <Grid container spacing={16}>
+              <Grid item>
+                <div className={classes.paper}>
+                  <Typography variant="h4" gutterBottom>
+                    HACK CHALLENGES FROM LEADING INDUSTRIES
+                  </Typography>
+                  <Typography paragraph>
+                    Leading industries, public sector organizations and NGO’s
+                    present their challenges for you to hack. Kick off your
+                    project on our platform during the pre-game period and
+                    continue to the 48-hour hackathon event.
+                  </Typography>
+                  <Typography paragraph>
+                    The pre-game period gives you more time to develop your
+                    solution, get feedback, recruit new team members and get
+                    expert mentoring. At the hackathon event the pre-selected
+                    teams have 48 hours to develop their solutions
+                    round-by-round and pitch them to partner judges and
+                    investors.
+                  </Typography>
+                  <Typography paragraph>
+                    Check out challenges and prizes, register to the platform
+                    and apply to the hackathon of your choice!
+                  </Typography>
+                </div>
               </Grid>
-            </div>
+            </Grid>
           </div>
         </div>
       </div>
