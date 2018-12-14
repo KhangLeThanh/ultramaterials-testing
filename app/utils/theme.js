@@ -10,7 +10,7 @@ export default createMuiTheme({
   palette: {
     type: 'light',
     primary: { main: '#424242', contrastText: '#ffffff' },
-    secondary: { main: '#D50000', contrastText: '#ffffff' },
+    secondary: { main: '#DA0035', contrastText: '#ffffff' },
   },
   themeName: 'Ultrahack theme',
   shadows: ['none'],

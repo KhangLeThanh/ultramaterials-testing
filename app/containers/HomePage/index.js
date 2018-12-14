@@ -42,13 +42,19 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    backgroundBlendMode: 'saturation',
     backgroundImage:
-      'url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EvVhCC0deijtsl1b4/videoblocks-binary-computer-code-background-motion-graphic-animation-computer-generated-seamless-loop_r2orby0ng_thumbnail-full01.png)',
+      'linear-gradient(black, black), url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EvVhCC0deijtsl1b4/videoblocks-binary-computer-code-background-motion-graphic-animation-computer-generated-seamless-loop_r2orby0ng_thumbnail-full01.png)',
     background: {
       repeat: 'no-repeat',
       position: 'center',
       size: ['100%', '100%'],
     },
+    backgroundBlendMode: 'saturation',
+  },
+  redBox: {
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.secondary.contrastText,
   },
 });
 
@@ -77,7 +83,7 @@ export class HomePage extends React.PureComponent {
             </Button>
           </div>
         </div>
-        <div style={{ backgroundColor: '#eff0f1' }}>
+        <div className={classes.redBox}>
           <div className={classes.grid}>
             <Grid container spacing={0}>
               <Grid item>
