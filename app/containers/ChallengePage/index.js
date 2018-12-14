@@ -7,10 +7,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import classNames from 'classnames';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -21,19 +19,17 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
 import makeSelectChallengePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import TabContainer from '../../components/TabContainer/index';
-
-import messages from './messages';
 
 import './style.css';
 
 const styles = theme => ({
   root: {
     width: 'inherit',
+    overflowX: 'hidden',
   },
   grid: {
     maxWidth: 1280,
@@ -57,14 +53,12 @@ const styles = theme => ({
 export class ChallengePage extends React.Component {
   state = {
     value: 0,
-    title: 'Challenge title',
     info: {
       starts: '15.12.2018.',
       deadline: '13.12.2018',
       location: 'Location info',
       prize: 'price info',
     },
-    details: 'A shit ton of Lorem Ipsum here okay',
     resources: 'resource information',
     faq: 'frequently asked questions here',
     header:
@@ -104,7 +98,7 @@ export class ChallengePage extends React.Component {
                   {this.state.info.location}
                 </Typography>
                 <Typography variant="body2">
-                    <i className="fas fa-trophy" /> {this.state.info.prize}
+                  <i className="fas fa-trophy" /> {this.state.info.prize}
                 </Typography>
               </Paper>
             </Grid>
@@ -203,7 +197,6 @@ export class ChallengePage extends React.Component {
 }
 
 ChallengePage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
