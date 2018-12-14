@@ -43,8 +43,9 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    backgroundBlendMode: 'saturation',
     backgroundImage:
-      'url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EvVhCC0deijtsl1b4/videoblocks-binary-computer-code-background-motion-graphic-animation-computer-generated-seamless-loop_r2orby0ng_thumbnail-full01.png)',
+      'linear-gradient(black, black), url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EvVhCC0deijtsl1b4/videoblocks-binary-computer-code-background-motion-graphic-animation-computer-generated-seamless-loop_r2orby0ng_thumbnail-full01.png)',
     background: {
       repeat: 'no-repeat',
       position: 'center',
