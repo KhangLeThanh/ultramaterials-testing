@@ -19,22 +19,29 @@ import reducer from './reducer';
 import saga from './saga';
 import ChallengeCard from '../../components/ChallengeCard/index';
 
-const styles = {
+const styles = theme => ({
   root: {
     textAlign: 'left',
+  },
+  headerSection: {
+    margin: theme.spacing.unit * 2,
   },
   grid: {
     maxWidth: 900,
     margin: '0 auto',
   },
+  listSection: {
+    paddingTop: theme.spacing.unit * 8,
+  },
   list: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
     maxWidth: 1200,
     flexWrap: 'wrap',
     margin: '0 auto',
   },
-};
+});
 
 const challenge = {
   title: 'Challenge title',
@@ -52,31 +59,38 @@ export class ChallengesPage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <div className={classes.grid}>
-          <Typography variant="h4">Challenges</Typography>
-          <Typography variant="body2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            debitis distinctio maxime! Voluptas blanditiis ipsa laudantium
-            voluptate illum omnis ullam impedit odio non tenetur, doloribus vel
-            ea, laborum provident vero corrupti sed autem rem ipsam voluptatem
-            maiores tempore qui eveniet? Accusamus dolorum natus ipsum pariatur
-            fuga incidunt eaque dignissimos aut voluptates, enim nostrum quod
-            consequatur vero unde asperiores amet delectus sit aspernatur
-            maiores rerum laboriosam quae modi tempore. Possimus magni vitae
-            animi aliquam modi. Ipsa laboriosam eum blanditiis! Suscipit
-            architecto eligendi, quos facere dignissimos dolorum quam in
-            provident ea veritatis iste dolores reprehenderit modi ipsam sunt?
-            Voluptatum architecto commodi inventore eveniet doloribus.
-          </Typography>
+        <div className={classes.headerSection}>
+          <div className={classes.grid}>
+            <Typography variant="h2" gutterBottom>
+              Challenges
+            </Typography>
+            <Typography>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+              debitis distinctio maxime! Voluptas blanditiis ipsa laudantium
+              voluptate illum omnis ullam impedit odio non tenetur, doloribus
+              vel ea, laborum provident vero corrupti sed autem rem ipsam
+              voluptatem maiores tempore qui eveniet? Accusamus dolorum natus
+              ipsum pariatur fuga incidunt eaque dignissimos aut voluptates,
+              enim nostrum quod consequatur vero unde asperiores amet delectus
+              sit aspernatur maiores rerum laboriosam quae modi tempore.
+              Possimus magni vitae animi aliquam modi. Ipsa laboriosam eum
+              blanditiis! Suscipit architecto eligendi, quos facere dignissimos
+              dolorum quam in provident ea veritatis iste dolores reprehenderit
+              modi ipsam sunt? Voluptatum architecto commodi inventore eveniet
+              doloribus.
+            </Typography>
+          </div>
         </div>
-        <div className={classes.list}>
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
-          <ChallengeCard {...challenge} />
+        <div className={classes.listSection}>
+          <div className={classes.list}>
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+            <ChallengeCard {...challenge} />
+          </div>
         </div>
       </div>
     );
