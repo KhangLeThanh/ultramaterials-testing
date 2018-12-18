@@ -17,6 +17,7 @@ import { Typography } from '@material-ui/core';
 import makeSelectChallengesPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import ChallengeCard from '../../components/ChallengeCard/index';
 
 const styles = {
   root: {
@@ -26,6 +27,23 @@ const styles = {
     maxWidth: 900,
     margin: '0 auto',
   },
+  list: {
+    display: 'flex',
+    flexDirection: 'row',
+    maxWidth: 1200,
+    flexWrap: 'wrap',
+    margin: '0 auto',
+  },
+};
+
+const challenge = {
+  title: 'Challenge title',
+  description:
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio vel accusamus officia rem quod alias, velit, placeat fugiat eos harum officiis perspiciatis accusantium animi recusandae minus inventore tempore hic quam odit doloremque dolore? Placeat consequuntur necessitatibus, magni iure cum eum, error nisi sed ipsum eius quo? Porro provident iusto asperiores?',
+  link: '/challenge',
+  media:
+    'https://www.standardmedia.co.ke/images/saturday/thumb_hwpk4gfklavs8g5a91d20395887.jpg',
+  deadline: new Date(),
 };
 
 /* eslint-disable react/prefer-stateless-function */
@@ -50,6 +68,15 @@ export class ChallengesPage extends React.Component {
             provident ea veritatis iste dolores reprehenderit modi ipsam sunt?
             Voluptatum architecto commodi inventore eveniet doloribus.
           </Typography>
+        </div>
+        <div className={classes.list}>
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
+          <ChallengeCard {...challenge} />
         </div>
       </div>
     );
