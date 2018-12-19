@@ -14,6 +14,7 @@ import Header from 'containers/Header/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ChallengePage from 'containers/ChallengePage/Loadable';
+import Footer from 'components/Footer';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route exact path="/challenge" component={ChallengePage} />
         <Route component={NotFoundPage} />
       </Switch>
+      <Footer />
     </div>
   );
 }
