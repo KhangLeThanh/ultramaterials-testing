@@ -14,6 +14,7 @@ import Header from 'containers/Header/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ChallengesPage from 'containers/ChallengesPage/Loadable';
+import ChallengePage from 'containers/ChallengePage/Loadable';
 import DashboardPage from 'containers/DashboardPage/Loadable';
 
 export default function App() {
@@ -22,7 +23,8 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/challenge" component={ChallengesPage} />
+        <Route exact path="/challenges" component={ChallengesPage} />
+        <Route exact path="/challenge" component={ChallengePage} />
         <Route exact path="/dashboard" component={DashboardPage} />
         <Route component={NotFoundPage} />
       </Switch>
