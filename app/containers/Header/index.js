@@ -92,7 +92,11 @@ export class Header extends React.Component {
             </div>
             <div className={classes.grow} />
             {auth ? (
-              <Button className={classes.loginButton}>
+              <Button
+                className={classes.loginButton}
+                component={Link}
+                to="/dashboard"
+              >
                 <AccountCircle />
               </Button>
             ) : (
