@@ -11,6 +11,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
 
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -72,16 +73,20 @@ export class Header extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolBar}>
-            <img
-              src="https://ultrahack.org/images/uh-red.png"
-              alt="Ultrahack logo"
-              className={classes.logo}
-            />
+            <Link to="/">
+              <img
+                src="https://ultrahack.org/images/uh-red.png"
+                alt="Ultrahack logo"
+                className={classes.logo}
+              />
+            </Link>
             <div className={classes.sectionDesktop}>
               <Button>Partnering</Button>
               <Button>Participate</Button>
               <Button>Volunteering</Button>
-              <Button>Challenges</Button>
+              <Button component={Link} to="/challenge">
+                Challenges
+              </Button>
               <Button>About</Button>
             </div>
             <div className={classes.grow} />
