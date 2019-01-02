@@ -21,6 +21,7 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
+  Divider,
 } from '@material-ui/core';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -33,13 +34,10 @@ const styles = theme => ({
     backgroundColor: 'rgba(35, 35, 42, 1)',
   },
   gridContainer: {
-    margin: theme.spacing.unit * 2,
+    paddingLeft: theme.spacing.unit * 1,
+    width: '100%',
   },
-  dataBox: {
-    margin: theme.spacing.unit * 2,
-    padding: theme.spacing.unit * 2,
-    border: '1px dotted white',
-  },
+  dataBox: {},
   formControl: {
     margin: theme.spacing.unit,
     display: 'flex',
@@ -108,6 +106,7 @@ class AdminEventPanel extends React.Component {
               user role
             </Typography>
           </ExpansionPanelSummary>
+          <Divider />
           <ExpansionPanelDetails>
             <div className={classes.gridContainer}>
               <Grid container spacing={16}>
