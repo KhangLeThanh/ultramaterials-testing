@@ -13,7 +13,8 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'containers/Header/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import ChallengePage from 'containers/ChallengePage/Loadable';
+import ChallengesPage from 'containers/ChallengesPage/Loadable';
+import DashboardPage from 'containers/DashboardPage/Loadable';
 
 export default function App() {
   return (
@@ -21,7 +22,8 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/challenge" component={ChallengePage} />
+        <Route exact path="/challenge" component={ChallengesPage} />
+        <Route exact path="/dashboard" component={DashboardPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
