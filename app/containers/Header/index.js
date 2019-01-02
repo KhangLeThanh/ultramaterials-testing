@@ -17,6 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import injectReducer from 'utils/injectReducer';
 import makeSelectHeader from './selectors';
@@ -63,7 +64,7 @@ const styles = theme => ({
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
   state = {
-    auth: false,
+    auth: true,
   };
 
   render() {
@@ -90,7 +91,11 @@ export class Header extends React.Component {
               <Button>About</Button>
             </div>
             <div className={classes.grow} />
-            {auth ? null : (
+            {auth ? (
+              <Button className={classes.loginButton}>
+                <AccountCircle />
+              </Button>
+            ) : (
               <Button className={classes.loginButton}>Login</Button>
             )}
             <IconButton className={classes.menuButton} aria-label="Menu">
