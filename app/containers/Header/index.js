@@ -84,7 +84,7 @@ export class Header extends React.Component {
               <Button>Partnering</Button>
               <Button>Participate</Button>
               <Button>Volunteering</Button>
-              <Button component={Link} to="/challenge">
+              <Button component={Link} to="/challenges">
                 Challenges
               </Button>
               <Button>About</Button>
