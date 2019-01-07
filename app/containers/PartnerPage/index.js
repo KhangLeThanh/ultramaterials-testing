@@ -8,7 +8,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,7 +20,7 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-const styles = {
+const styles = theme => ({
   stats: {
     display: 'flex',
     flexDirection: 'row',
@@ -30,7 +29,14 @@ const styles = {
     display: 'grid',
     gridTemplate: 'auto / 80px 100px',
   },
-};
+  grid: {
+    maxWidth: 900,
+    margin: '0 auto',
+  },
+  page: {
+    margin: theme.spacing.unit * 2,
+  },
+});
 
 /* eslint-disable react/prefer-stateless-function */
 export class PartnerPage extends React.Component {
@@ -38,45 +44,54 @@ export class PartnerPage extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.page}>
         <Helmet>
           <title>Ultrahack | Partners</title>
           <meta name="description" content="Description of PartnerPage" />
         </Helmet>
-        <FormattedMessage {...messages.header} />
-        <div className={classes.stats} />
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.community}</Typography>
-          <Typography>community members</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.participants}</Typography>
-          <Typography>selected participants</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.challenges}</Typography>
-          <Typography>challenges</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.solutions}</Typography>
-          <Typography>solutions</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.partners}</Typography>
-          <Typography>industry partners</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.mentors}</Typography>
-          <Typography>mentors</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          {' '}
-          <Typography variant="h5">{messages.stats.volunteers}</Typography>
-          <Typography>volunteers</Typography>
-        </div>
-        <div className={classes.statsRow}>
-          <Typography variant="h5">{messages.stats.organizers}</Typography>
-          <Typography>organizers</Typography>
+        <div className={classes.grid}>
+          <br />
+          <Typography variant="h3">What is Ultrahack?</Typography>
+          {messages.textContent.whatIsUltrahack.map((text, index) => (
+            <Typography key={`what-is-ultrahack-${index}`} gutterBottom>
+              {text}
+            </Typography>
+          ))}
+          <br />
+          <Typography variant="h5">Ultrahack in numbers</Typography>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.community}</Typography>
+            <Typography>community members</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.participants}</Typography>
+            <Typography>selected participants</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.challenges}</Typography>
+            <Typography>challenges</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.solutions}</Typography>
+            <Typography>solutions</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.partners}</Typography>
+            <Typography>industry partners</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.mentors}</Typography>
+            <Typography>mentors</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            {' '}
+            <Typography variant="h5">{messages.stats.volunteers}</Typography>
+            <Typography>volunteers</Typography>
+          </div>
+          <div className={classes.statsRow}>
+            <Typography variant="h5">{messages.stats.organizers}</Typography>
+            <Typography>organizers</Typography>
+          </div>
         </div>
       </div>
     );
@@ -84,7 +99,6 @@ export class PartnerPage extends React.Component {
 }
 
 PartnerPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

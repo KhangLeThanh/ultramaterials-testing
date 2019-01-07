@@ -23,4 +23,13 @@ export default defineMessages({
     volunteers: 50,
     organizers: 20,
   },
+  textContent: {
+    whatIsUltrahack: [
+      `Ultrahack combines hackathons, an innovation platform and accelerator in a 
+      unique manner.Our mission is to build a community where the best talent and 
+      leading industry partners could meet and collaborate in building future 
+      innovations by leveraging latest technologies, tools and API's. \r\n`,
+      `We have collaborated with leading industries, public organizations, and NGOs. Thank you for your support and engagement. Without you, there wouldn't be us.`,
+    ],
+  },
 });
