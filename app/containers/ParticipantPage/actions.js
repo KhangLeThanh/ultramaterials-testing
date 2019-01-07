@@ -1,6 +1,6 @@
 /*
  *
- * FrontPage actions
+ * ParticipantPage actions
  *
  */
 

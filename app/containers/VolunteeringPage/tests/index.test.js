@@ -2,9 +2,9 @@
 // import { mount } from 'enzyme';
 // import { enzymeFind } from 'styled-components/test-utils';
 
-// import { FrontPage } from '../index';
+// import { VolunteeringPage } from '../index';
 
-describe('<FrontPage />', () => {
+describe('<VolunteeringPage />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

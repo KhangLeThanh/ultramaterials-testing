@@ -16,6 +16,9 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ChallengesPage from 'containers/ChallengesPage/Loadable';
 import ChallengePage from 'containers/ChallengePage/Loadable';
 import DashboardPage from 'containers/DashboardPage/Loadable';
+import PartnerPage from 'containers/PartnerPage/Loadable';
+import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
+import ParticipantPage from 'containers/ParticipantPage/Loadable';
 
 export default function App() {
   return (
@@ -26,6 +29,10 @@ export default function App() {
         <Route exact path="/challenges" component={ChallengesPage} />
         <Route exact path="/challenge" component={ChallengePage} />
         <Route exact path="/dashboard" component={DashboardPage} />
+        <Route exact path="/partner" component={PartnerPage} />
+        <Route exact path="/volunteer" component={VolunteeringPage} />
+        <Route exact path="/participate" component={ParticipantPage} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </div>
