@@ -82,13 +82,21 @@ export class Header extends React.Component {
               />
             </Link>
             <div className={classes.sectionDesktop}>
-              <Button>Partnering</Button>
-              <Button>Participate</Button>
-              <Button>Volunteering</Button>
+              <Button component={Link} to="/partner">
+                Partnering
+              </Button>
+              <Button component={Link} to="/participate">
+                Participate
+              </Button>
+              <Button component={Link} to="/volunteer">
+                Volunteering
+              </Button>
               <Button component={Link} to="/challenges">
                 Challenges
               </Button>
-              <Button>About</Button>
+              <Button component={Link} to="/about">
+                About
+              </Button>
             </div>
             <div className={classes.grow} />
             {auth ? (
