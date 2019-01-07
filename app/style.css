@@ -28,5 +28,5 @@ html {
 #app {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAOUlEQVRIx2NkYOP5z0BDwMRAYzBqAWELJOVUsEpQS5xxNBWNpqLRVDRqwWgqGrWALhbYu3jTNBUBAOTfCpTGsWyyAAAAAElFTkSuQmCC);
   min-height: 100vh;
-  min-width: 100vh;
+  min-width: 100vw;
 }
