@@ -15,6 +15,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ChallengesPage from 'containers/ChallengesPage/Loadable';
 import ChallengePage from 'containers/ChallengePage/Loadable';
+import Footer from 'components/Footer';
 import DashboardPage from 'containers/DashboardPage/Loadable';
 import PartnerPage from 'containers/PartnerPage/Loadable';
 import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
@@ -35,6 +36,7 @@ export default function App() {
 
         <Route component={NotFoundPage} />
       </Switch>
+      <Footer />
     </div>
   );
 }
