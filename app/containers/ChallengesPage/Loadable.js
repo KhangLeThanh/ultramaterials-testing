@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for FrontPage
+ * Asynchronously loads the component for ChallengesPage
  *
  */
 

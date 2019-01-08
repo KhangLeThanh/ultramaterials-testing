@@ -11,11 +11,13 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
 
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import injectReducer from 'utils/injectReducer';
 import makeSelectHeader from './selectors';
@@ -62,7 +64,7 @@ const styles = theme => ({
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
   state = {
-    auth: false,
+    auth: true,
   };
 
   render() {
@@ -72,20 +74,40 @@ export class Header extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolBar}>
-            <img
-              src="https://ultrahack.org/images/uh-red.png"
-              alt="Ultrahack logo"
-              className={classes.logo}
-            />
+            <Link to="/">
+              <img
+                src="https://ultrahack.org/images/uh-red.png"
+                alt="Ultrahack logo"
+                className={classes.logo}
+              />
+            </Link>
             <div className={classes.sectionDesktop}>
-              <Button>Partnering</Button>
-              <Button>Participate</Button>
-              <Button>Volunteering</Button>
-              <Button>Challenges</Button>
-              <Button>About</Button>
+              <Button component={Link} to="/partner">
+                Partnering
+              </Button>
+              <Button component={Link} to="/participate">
+                Participate
+              </Button>
+              <Button component={Link} to="/volunteer">
+                Volunteering
+              </Button>
+              <Button component={Link} to="/challenges">
+                Challenges
+              </Button>
+              <Button component={Link} to="/about">
+                About
+              </Button>
             </div>
             <div className={classes.grow} />
-            {auth ? null : (
+            {auth ? (
+              <Button
+                className={classes.loginButton}
+                component={Link}
+                to="/dashboard"
+              >
+                <AccountCircle />
+              </Button>
+            ) : (
               <Button className={classes.loginButton}>Login</Button>
             )}
             <IconButton className={classes.menuButton} aria-label="Menu">

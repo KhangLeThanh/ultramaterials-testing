@@ -1,38 +1,45 @@
 /**
  *
- * FrontPage
+ * ParticipantPage
  *
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectFrontPage from './selectors';
+import makeSelectParticipantPage from './selectors';
 import reducer from './reducer';
+import saga from './saga';
 import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
-export class FrontPage extends React.Component {
+export class ParticipantPage extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>ParticipantPage</title>
+          <meta name="description" content="Description of ParticipantPage" />
+        </Helmet>
         <FormattedMessage {...messages.header} />
       </div>
     );
   }
 }
 
-FrontPage.propTypes = {
+ParticipantPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  frontPage: makeSelectFrontPage(),
+  participantPage: makeSelectParticipantPage(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -46,9 +53,11 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'frontPage', reducer });
+const withReducer = injectReducer({ key: 'participantPage', reducer });
+const withSaga = injectSaga({ key: 'participantPage', saga });
 
 export default compose(
   withReducer,
+  withSaga,
   withConnect,
-)(FrontPage);
+)(ParticipantPage);

@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Lato|PT+Mono|Space+Mono');
+
+@font-face {
+  font-family: 'Lato', sans-serif;
+  src: url(https://fonts.googleapis.com/css?family=Lato);
+}
+
+@font-face {
+  font-family: 'Space Mono', monospace;
+  src: url(https://fonts.googleapis.com/css?family=Space+Mono);
+}
+
+@font-face {
+  font-family: 'PT Mono', monospace;
+  src: url(https://fonts.googleapis.com/css?family=PT+Mono);
+}
+
+@font-face {
+  font-family: 'Inconsolata', monospace;
+  src: url(https://fonts.googleapis.com/css?family=Inconsolata);
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
 #app {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAOUlEQVRIx2NkYOP5z0BDwMRAYzBqAWELJOVUsEpQS5xxNBWNpqLRVDRqwWgqGrWALhbYu3jTNBUBAOTfCpTGsWyyAAAAAElFTkSuQmCC);
+  min-height: 100vh;
+  min-width: 100vw;
 }
