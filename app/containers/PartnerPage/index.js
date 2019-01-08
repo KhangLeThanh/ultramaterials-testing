@@ -25,9 +25,25 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'row',
   },
+  statsDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
   statsRow: {
     display: 'grid',
-    gridTemplate: 'auto / 80px 100px',
+    gridTemplate: 'auto / 130px 100px',
+  },
+  statsNumber: {
+    fontSize: theme.spacing.unit * 7,
+    textAlign: 'right',
+    color: theme.palette.secondary.main,
+  },
+  statsText: {
+    paddingLeft: theme.spacing.unit * 2.5,
+    paddingTop: theme.spacing.unit * 1.5,
+    textTransform: 'uppercase',
   },
   grid: {
     maxWidth: 900,
@@ -35,6 +51,12 @@ const styles = theme => ({
   },
   page: {
     margin: theme.spacing.unit * 2,
+  },
+  testimonyDiv: {
+    borderLeft: '5px solid red',
+    paddingLeft: theme.spacing.unit,
+    marginLeft: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 3,
   },
 });
 
@@ -51,47 +73,45 @@ export class PartnerPage extends React.Component {
         </Helmet>
         <div className={classes.grid}>
           <br />
-          <Typography variant="h3">What is Ultrahack?</Typography>
+          <Typography variant="h3" gutterBottom>
+            What is Ultrahack?
+          </Typography>
           {messages.textContent.whatIsUltrahack.map((text, index) => (
             <Typography key={`what-is-ultrahack-${index}`} gutterBottom>
               {text}
             </Typography>
           ))}
           <br />
-          <Typography variant="h5">Ultrahack in numbers</Typography>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.community}</Typography>
-            <Typography>community members</Typography>
+          <div className={classes.statsDiv}>
+            {messages.stats.map((value, index) => (
+              <div className={classes.statsRow}>
+                <Typography variant="h5" className={classes.statsNumber}>
+                  {messages.stats[index].amount}
+                </Typography>
+                <Typography className={classes.statsText}>
+                  {messages.stats[index].text}
+                </Typography>
+              </div>
+            ))}
           </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.participants}</Typography>
-            <Typography>selected participants</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.challenges}</Typography>
-            <Typography>challenges</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.solutions}</Typography>
-            <Typography>solutions</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.partners}</Typography>
-            <Typography>industry partners</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.mentors}</Typography>
-            <Typography>mentors</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            {' '}
-            <Typography variant="h5">{messages.stats.volunteers}</Typography>
-            <Typography>volunteers</Typography>
-          </div>
-          <div className={classes.statsRow}>
-            <Typography variant="h5">{messages.stats.organizers}</Typography>
-            <Typography>organizers</Typography>
-          </div>
+          <br />
+          <Typography variant="h3" gutterBottom>
+            How Ultrahack can help your company
+          </Typography>
+          <Typography gutterBottom>
+            {messages.textContent.howUltrahackHelps}
+          </Typography>
+          <br />
+          {messages.textContent.testimonies.map((testimony, index) => (
+            <div className={classes.testimonyDiv}>
+              <Typography>
+                {messages.textContent.testimonies[index].testimony}
+              </Typography>
+              <Typography gutterBottom>
+                - {messages.textContent.testimonies[index].source}
+              </Typography>
+            </div>
+          ))}
         </div>
       </div>
     );
