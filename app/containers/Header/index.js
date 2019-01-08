@@ -42,7 +42,8 @@ const styles = theme => ({
     backgroundColor: 'transparent',
   },
   appBar: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#00060c',
+    borderBottom: [[1, 'solid', 'rgba( 255, 255, 255, .25 )']],
   },
   menuButton: {
     display: 'block',
