@@ -14,7 +14,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { Typography } from '@material-ui/core';
+import {
+  Typography,
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+} from '@material-ui/core';
 import makeSelectPartnerPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -53,10 +59,21 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
   },
   testimonyDiv: {
-    borderLeft: '5px solid red',
-    paddingLeft: theme.spacing.unit,
+    padding: theme.spacing.unit,
+    borderColor: theme.palette.secondary.main,
+    borderStyle: 'solid',
+    borderWidth: '0 0 0 5px',
+    backgroundColor: theme.palette.primary.main,
+    paddingLeft: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 3,
+  },
+  card: {
+    maxWidth: 400,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
   },
 });
 
@@ -94,7 +111,10 @@ export class PartnerPage extends React.Component {
               </div>
             ))}
           </div>
+
           <br />
+          <br />
+
           <Typography variant="h3" gutterBottom>
             How Ultrahack can help your company
           </Typography>
@@ -102,16 +122,38 @@ export class PartnerPage extends React.Component {
             {messages.textContent.howUltrahackHelps}
           </Typography>
           <br />
-          {messages.textContent.testimonies.map((testimony, index) => (
+          {messages.textContent.testimonies.map(testimony => (
             <div className={classes.testimonyDiv}>
-              <Typography>
-                {messages.textContent.testimonies[index].testimony}
-              </Typography>
-              <Typography gutterBottom>
-                - {messages.textContent.testimonies[index].source}
-              </Typography>
+              <Typography gutterBottom>{testimony.testimony}</Typography>
+              <Typography>- {testimony.source}</Typography>
             </div>
           ))}
+
+          <br />
+          <br />
+
+          <Typography variant="h3">Contact us</Typography>
+          {messages.contacts.map(contact => (
+            <Card className={classes.card}>
+              <CardHeader
+                title={contact.fullName}
+                subheader={contact.position}
+              />
+              <CardMedia
+                className={classes.media}
+                image={contact.i}
+                title={contact.fullName}
+              />
+              <CardContent>
+                <Typography>{contact.email}</Typography>
+                <Typography>{contact.phone}</Typography>
+                <Typography>{contact.description}</Typography>
+              </CardContent>
+            </Card>
+          ))}
+
+          <br />
+          <br />
         </div>
       </div>
     );

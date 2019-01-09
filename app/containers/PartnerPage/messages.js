@@ -23,6 +23,24 @@ export default defineMessages({
     { text: 'volunteers', amount: '50' },
     { text: 'organizers', amount: '20' },
   ],
+  contacts: [
+    {
+      fullName: 'Mikko Järvilehto',
+      position: 'CEO, Co-founder',
+      image: 'https://ultrahack.org/images/mikko-jarvilehto2.jpg',
+      email: 'mikko.jarvilehto@ultrahack.org',
+      phone: '+358 40 508 6265',
+      description: 'General inquiries, developer & community support',
+    },
+    {
+      fullName: 'Miikka Nevasalo',
+      position: 'COO, Partner',
+      image: 'https://ultrahack.org/images/miikka-nevasalo.png',
+      email: 'miikka.nevasalo@ultrahack.org',
+      phone: '+358 40 803 2162',
+      description: 'Sales, partners, media',
+    },
+  ],
   textContent: {
     whatIsUltrahack: [
       `Ultrahack combines hackathons, an innovation platform and accelerator in a 
