@@ -18,6 +18,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import ClearIcon from '@material-ui/icons/Clear';
 import {
   MenuList,
   MenuItem,
@@ -88,6 +89,8 @@ export class Header extends React.Component {
     this.setState({ open: false });
   };
 
+  renderLink = to => <Link to={to} />;
+
   render() {
     const { classes } = this.props;
     const { auth, open } = this.state;
@@ -143,7 +146,7 @@ export class Header extends React.Component {
                 aria-haspopup="true"
                 onClick={this.handleToggle}
               >
-                <MenuIcon />
+                {open ? <ClearIcon /> : <MenuIcon />}
               </IconButton>
               <Popper
                 open={open}
@@ -163,11 +166,40 @@ export class Header extends React.Component {
                     <Paper>
                       <ClickAwayListener onClickAway={this.handleClose}>
                         <MenuList>
-                          <MenuItem onClick={this.handleClose}>
-                            Profile
+                          <MenuItem
+                            onClick={this.handleClose}
+                            component={Link}
+                            to="/partner"
+                          >
+                            Partner
                           </MenuItem>
-                          <MenuItem onClick={this.handleClose}>
-                            My account
+                          <MenuItem
+                            onClick={this.handleClose}
+                            component={Link}
+                            to="/participate"
+                          >
+                            Participate
+                          </MenuItem>
+                          <MenuItem
+                            onClick={this.handleClose}
+                            component={Link}
+                            to="/volunteer"
+                          >
+                            Volunteer
+                          </MenuItem>
+                          <MenuItem
+                            onClick={this.handleClose}
+                            component={Link}
+                            to="/challenges"
+                          >
+                            Challenges
+                          </MenuItem>
+                          <MenuItem
+                            onClick={this.handleClose}
+                            component={Link}
+                            to="/about"
+                          >
+                            About
                           </MenuItem>
                         </MenuList>
                       </ClickAwayListener>
