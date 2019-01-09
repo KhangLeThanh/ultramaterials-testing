@@ -41,6 +41,68 @@ export default defineMessages({
       description: 'Sales, partners, media',
     },
   ],
+  tileData: [
+    {
+      img: 'https://ultrahack.org/images/logo-op-216x168.png',
+      title: 'OP',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-rteco-216x168.png',
+      title: 'RTECO',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-vtt2-216x168.png',
+      title: 'VTT',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-tkoaly-216x168.png',
+      title: 'TKO Äly',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-fmi-216x168.png',
+      title: 'FMI',
+      cols: 2,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-helsinkithinkcompany-216x168.png',
+      title: 'Helsinki Think Company',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-cams-216x168.png',
+      title: 'Copernicus Atmosphere Monitoring Service',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-eumetsat-216x168.png',
+      title: 'Eumetsat',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-receipthero-216x168.png',
+      title: 'ReceiptHero',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-until-216x168.png',
+      title: 'UNTIL',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-aaltouniversity-216x168.png',
+      title: 'Aalto University',
+      cols: 1,
+    },
+    {
+      img: 'https://ultrahack.org/images/logo-ibm-216x168.png',
+      title: 'CGI',
+      cols: 1,
+    },
+  ],
   textContent: {
     whatIsUltrahack: [
       `Ultrahack combines hackathons, an innovation platform and accelerator in a 

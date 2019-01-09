@@ -68,12 +68,22 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 3,
   },
+  contactsDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   card: {
-    maxWidth: 400,
+    maxWidth: 250,
+    margin: theme.spacing.unit,
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '100%', // 16:9
+  },
+  gridListDiv: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
 });
 
@@ -115,6 +125,15 @@ export class PartnerPage extends React.Component {
           <br />
           <br />
 
+          <div className={classes.gridListDiv}>
+            {messages.tileData.map(tile => (
+              <img src={tile.img} alt={tile.title} />
+            ))}
+          </div>
+
+          <br />
+          <br />
+
           <Typography variant="h3" gutterBottom>
             How Ultrahack can help your company
           </Typography>
@@ -133,24 +152,27 @@ export class PartnerPage extends React.Component {
           <br />
 
           <Typography variant="h3">Contact us</Typography>
-          {messages.contacts.map(contact => (
-            <Card className={classes.card}>
-              <CardHeader
-                title={contact.fullName}
-                subheader={contact.position}
-              />
-              <CardMedia
-                className={classes.media}
-                image={contact.i}
-                title={contact.fullName}
-              />
-              <CardContent>
-                <Typography>{contact.email}</Typography>
-                <Typography>{contact.phone}</Typography>
-                <Typography>{contact.description}</Typography>
-              </CardContent>
-            </Card>
-          ))}
+          <div className={classes.contactsDiv}>
+            {messages.contacts.map(contact => (
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.media}
+                  image={contact.image}
+                  title={contact.fullName}
+                />
+                <CardHeader
+                  title={contact.fullName}
+                  subheader={contact.position}
+                />
+
+                <CardContent>
+                  <Typography>{contact.email}</Typography>
+                  <Typography>{contact.phone}</Typography>
+                  <Typography>{contact.description}</Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
           <br />
           <br />
