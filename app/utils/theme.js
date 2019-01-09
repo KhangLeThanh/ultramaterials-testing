@@ -3,8 +3,14 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export default createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontFamily: ['Lato', 'PT Mono', 'Space Mono', 'Inconsolata'].join(','),
     h4: {
       textAlign: 'center',
+      fontFamily: 'PT Mono',
+    },
+    h5: {
+      textAlign: 'left',
+      fontFamily: 'PT Mono',
     },
   },
   palette: {
