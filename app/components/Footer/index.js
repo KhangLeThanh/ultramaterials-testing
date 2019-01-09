@@ -27,20 +27,36 @@ const styles = theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'column',
+    },
   },
   flex: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-around',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+    },
+  },
+  logos: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  texts: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   link: {
-    color: theme.palette.text.secondary,
+    textDecoration: 'none',
+    color: theme.palette.secondary.contrastText,
     padding: '2px 5px',
     '&:hover': {
-      backgroundColor: theme.palette.text.secondary,
-      color: 'black',
+      color: theme.palette.secondary.main,
     },
   },
 });
@@ -53,18 +69,60 @@ class Footer extends React.Component {
       <div>
         <div className={classes.flex}>
           <div className={classes.paper}>
-            <Typography>© 2018 Futuretournaments.</Typography>
-            <Typography>All Rights Reserved.</Typography>
+            <div className={classes.text}>
+              <Typography>© 2018 Futuretournaments.</Typography>
+              <Typography>All Rights Reserved.</Typography>
+            </div>
           </div>
           <div className={classes.paper}>
-            <Typography>About us</Typography>
-            <Typography>Terms of Service</Typography>
-            <Typography>Privacy Policy</Typography>
-            <Typography>Cookie Policy</Typography>
-            <Typography>Ultrahack Newsletter</Typography>
+            <div className={classes.text}>
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://ultrahack.org/about-us"
+                >
+                  About us
+                </a>
+              </Typography>
+
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://ultrahack.org/terms-of-service"
+                >
+                  Terms of Service
+                </a>
+              </Typography>
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://ultrahack.org/privacy-policy"
+                >
+                  Privacy Policy
+                </a>
+              </Typography>
+
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://ultrahack.org/cookie-policy"
+                >
+                  Cookie Policy
+                </a>
+              </Typography>
+
+              <Typography>
+                <a
+                  className={classes.link}
+                  href="https://ultrahack.us11.list-manage.com/subscribe/?u=6b1ca44d06d111d99f84a0508&id=c37c1df784"
+                >
+                  Ultrahack Newsletter
+                </a>
+              </Typography>
+            </div>
           </div>
           <div className={classes.paper}>
-            <div className={classes.flex}>
+            <div className={classes.logos}>
               <a
                 className={classes.link}
                 href="https://www.facebook.com/ultrahackhq"
