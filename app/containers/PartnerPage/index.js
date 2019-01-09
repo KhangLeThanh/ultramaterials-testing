@@ -65,12 +65,14 @@ const styles = theme => ({
     borderWidth: '0 0 0 5px',
     backgroundColor: theme.palette.primary.main,
     paddingLeft: theme.spacing.unit * 2,
-    marginLeft: theme.spacing.unit * 2,
+
     marginTop: theme.spacing.unit * 3,
   },
   contactsDiv: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
   card: {
     maxWidth: 250,
@@ -83,7 +85,13 @@ const styles = theme => ({
   gridListDiv: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+  },
+  tile: {
+    margin: theme.spacing.unit,
+    transition: 'transform 200ms ease-in -out',
+    width: '124px',
+    height: '94px',
   },
 });
 
@@ -104,7 +112,7 @@ export class PartnerPage extends React.Component {
             What is Ultrahack?
           </Typography>
           {messages.textContent.whatIsUltrahack.map((text, index) => (
-            <Typography key={`what-is-ultrahack-${index}`} gutterBottom>
+            <Typography key={`what-is-ultrahack-${index}`} paragraph>
               {text}
             </Typography>
           ))}
@@ -115,42 +123,39 @@ export class PartnerPage extends React.Component {
                 <Typography variant="h5" className={classes.statsNumber}>
                   {messages.stats[index].amount}
                 </Typography>
-                <Typography className={classes.statsText}>
+                <Typography className={classes.statsText} paragraph>
                   {messages.stats[index].text}
                 </Typography>
               </div>
             ))}
           </div>
-
           <br />
           <br />
-
-          <div className={classes.gridListDiv}>
-            {messages.tileData.map(tile => (
-              <img src={tile.img} alt={tile.title} />
-            ))}
-          </div>
-
-          <br />
-          <br />
-
+        </div>
+        <div className={classes.gridListDiv}>
+          {messages.tileData.map(tile => (
+            <img src={tile.img} alt={tile.title} className={classes.tile} />
+          ))}
+        </div>
+        <br style={{ clear: 'both' }} />
+        <br />
+        <br />
+        <div className={classes.grid}>
           <Typography variant="h3" gutterBottom>
             How Ultrahack can help your company
           </Typography>
-          <Typography gutterBottom>
+          <Typography paragraph>
             {messages.textContent.howUltrahackHelps}
           </Typography>
           <br />
           {messages.textContent.testimonies.map(testimony => (
             <div className={classes.testimonyDiv}>
-              <Typography gutterBottom>{testimony.testimony}</Typography>
-              <Typography>- {testimony.source}</Typography>
+              <Typography paragraph>{testimony.testimony}</Typography>
+              <Typography paragraph>- {testimony.source}</Typography>
             </div>
           ))}
-
           <br />
           <br />
-
           <Typography variant="h3">Contact us</Typography>
           <div className={classes.contactsDiv}>
             {messages.contacts.map(contact => (
@@ -166,14 +171,13 @@ export class PartnerPage extends React.Component {
                 />
 
                 <CardContent>
-                  <Typography>{contact.email}</Typography>
-                  <Typography>{contact.phone}</Typography>
-                  <Typography>{contact.description}</Typography>
+                  <Typography paragraph>{contact.email}</Typography>
+                  <Typography paragraph>{contact.phone}</Typography>
+                  <Typography paragraph>{contact.description}</Typography>
                 </CardContent>
               </Card>
             ))}
           </div>
-
           <br />
           <br />
         </div>
