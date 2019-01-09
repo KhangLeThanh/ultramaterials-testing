@@ -8,34 +8,13 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-import Header from 'containers/Header/Loadable';
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import ChallengesPage from 'containers/ChallengesPage/Loadable';
-import ChallengePage from 'containers/ChallengePage/Loadable';
 import Footer from 'components/Footer';
-import DashboardPage from 'containers/DashboardPage/Loadable';
-import PartnerPage from 'containers/PartnerPage/Loadable';
-import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
-import ParticipantPage from 'containers/ParticipantPage/Loadable';
+import Content from 'components/Content';
 
 export default function App() {
   return (
     <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/challenges" component={ChallengesPage} />
-        <Route exact path="/challenge" component={ChallengePage} />
-        <Route exact path="/dashboard" component={DashboardPage} />
-        <Route exact path="/partner" component={PartnerPage} />
-        <Route exact path="/volunteer" component={VolunteeringPage} />
-        <Route exact path="/participate" component={ParticipantPage} />
-
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Content />
       <Footer />
     </div>
   );
