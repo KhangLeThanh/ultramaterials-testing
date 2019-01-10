@@ -13,6 +13,11 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'This is the ParticipantPage container!',
   },
+  paragraphs: [
+    `Leading industries, public sector organizations and NGO’s present their challenges for you to hack. Kick off your project on our platform during the pre-game period and continue to the 48-hour hackathon event.`,
+    `The pre-game period gives you more time to develop your solution, get feedback, recruit new team members and get expert mentoring. At the hackathon event the pre-selected teams have 48 hours to develop their solutions round-by-round and pitch them to partner judges and investors.`,
+    `Check out challenges and prizes, register to the platform and apply to the hackathon of your choice!`,
+  ],
   quotes: [
     {
       text: `"Ultrahack gave us a lot of confidence and the experience how it feels to exceed your own expectations. But the best part was the sense of community and shared accomplishments. People had come to create their own projects and pursue their goals together. That’s what it was all about – a community."`,

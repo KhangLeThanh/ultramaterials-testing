@@ -8,14 +8,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 // import Quote from 'components/Quote';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { Typography, Paper, withStyles, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Typography, Paper, withStyles, Grid, Button } from '@material-ui/core';
 
 import makeSelectParticipantPage from './selectors';
 import reducer from './reducer';
@@ -26,8 +26,10 @@ const styles = theme => ({
   root: {
     maxWidth: 1000,
     margin: '0 auto',
-    paddingTop: theme.spacing.unit * 12,
-    paddingBottom: theme.spacing.unit * 14,
+  },
+  box: {
+    paddingTop: theme.spacing.unit * 6,
+    paddingBottom: theme.spacing.unit * 6,
   },
   cards: {
     flexGrow: 1,
@@ -43,6 +45,14 @@ const styles = theme => ({
     background: theme.palette.primary.dark,
     minHeight: 300,
   },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.secondary.contrastText,
+    padding: '2px 5px',
+    '&:hover': {
+      color: theme.palette.secondary.main,
+    },
+  },
 });
 
 /* eslint-disable react/prefer-stateless-function */
@@ -55,34 +65,54 @@ export class ParticipantPage extends React.Component {
           <title>Participate</title>
           <meta name="description" content="Description of ParticipantPage" />
         </Helmet>
-        <FormattedMessage {...messages.header} />
+        <div className={classes.box}>
+          <Typography variant="h3" gutterBottom>
+            HACK CHALLENGES FROM LEADING INDUSTRIES
+          </Typography>
+          {messages.paragraphs.map(text => (
+            <Typography paragraph>{text}</Typography>
+          ))}
+          <Button
+            variant="contained"
+            color="secondary"
+            component={Link}
+            to="/challenges"
+          >
+            Go to challenges
+          </Button>
+        </div>
 
-        <Typography variant="h3" gutterBottom>
-          What our community says:
-        </Typography>
-        {messages.quotes.map(quote => (
-          <div>
-            <Typography paragraph>{quote.text}</Typography>
-            <Typography paragraph>{quote.source}</Typography>
-            <br />
+        <div className={classes.box}>
+          <div className={classes.cards}>
+            <Typography variant="h3" gutterBottom>
+              Reasons to become an Ultrahacker
+            </Typography>
+            <Grid container spacing={24}>
+              {messages.cards.map(card => (
+                <Grid item xs={4}>
+                  <Paper className={classes.paper}>
+                    <Typography variant="h4" gutterBottom>
+                      {card.header}
+                    </Typography>
+                    <Typography paragraph>{card.text}</Typography>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
           </div>
-        ))}
-        <Typography variant="h3" gutterBottom>
-          Reasons to become an Ultrahacker
-        </Typography>
-        <div className={classes.cards}>
-          <Grid container spacing={24}>
-            {messages.cards.map(card => (
-              <Grid item xs={4}>
-                <Paper className={classes.paper}>
-                  <Typography variant="h4" gutterBottom>
-                    {card.header}
-                  </Typography>
-                  <Typography paragraph>{card.text}</Typography>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
+        </div>
+
+        <div className={classes.box}>
+          <Typography variant="h3" gutterBottom>
+            What our community says:
+          </Typography>
+          {messages.quotes.map(quote => (
+            <div>
+              <Typography paragraph>{quote.text}</Typography>
+              <Typography paragraph>{quote.source}</Typography>
+              <br />
+            </div>
+          ))}
         </div>
       </div>
     );
