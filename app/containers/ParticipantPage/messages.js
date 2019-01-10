@@ -15,7 +15,7 @@ export default defineMessages({
   },
   quotes: [
     {
-      text: `"Ultrahack gave us a lot of confidence and the experience how it feels <a>link</a> to exceed your own expectations. But the best part was the sense of community and shared accomplishments. People had come to create their own projects and pursue their goals together. That’s what it was all about – a community."`,
+      text: `"Ultrahack gave us a lot of confidence and the experience how it feels to exceed your own expectations. But the best part was the sense of community and shared accomplishments. People had come to create their own projects and pursue their goals together. That’s what it was all about – a community."`,
       source: `- Matias Koskinen, CTO at Rehaboo, Ultrahack Health Track Winner 2015 & Ultrahack Health Track Prize 2016`,
     },
     {
