@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-// import Quote from 'components/Quote';
+import Quote from 'components/Quote';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -108,8 +108,7 @@ export class ParticipantPage extends React.Component {
           </Typography>
           {messages.quotes.map(quote => (
             <div>
-              <Typography paragraph>{quote.text}</Typography>
-              <Typography paragraph>{quote.source}</Typography>
+              <Quote author={quote.source} text={quote.text} />
               <br />
             </div>
           ))}
