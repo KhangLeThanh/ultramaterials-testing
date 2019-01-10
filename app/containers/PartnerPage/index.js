@@ -140,10 +140,7 @@ export class PartnerPage extends React.Component {
           </Typography>
           <br />
           {messages.textContent.testimonies.map(testimony => (
-            <Quote>
-              <Typography paragraph>{testimony.testimony}</Typography>
-              <Typography paragraph>- {testimony.source}</Typography>
-            </Quote>
+            <Quote author={testimony.testimony} text={testimony.source} />
           ))}
           <br />
           <br />

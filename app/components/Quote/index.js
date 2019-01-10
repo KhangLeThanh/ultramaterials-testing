@@ -8,6 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
+import { Typography } from '@material-ui/core';
+
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 const styles = theme => ({
@@ -25,13 +27,19 @@ const styles = theme => ({
 class Quote extends React.Component {
   render() {
     const { classes } = this.props;
-    return <div className={classes.root}>{this.props.children}</div>;
+    return (
+      <div className={classes.root}>
+        <Typography paragraph>{this.props.author}</Typography>
+        <Typography paragraphs>{this.props.text}</Typography>
+      </div>
+    );
   }
 }
 
 Quote.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.object.isRequired,
+  author: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Quote);
