@@ -21,6 +21,7 @@ import {
   CardMedia,
   CardContent,
 } from '@material-ui/core';
+import Quote from 'components/Quote';
 import makeSelectPartnerPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -57,16 +58,6 @@ const styles = theme => ({
   },
   page: {
     margin: theme.spacing.unit * 2,
-  },
-  testimonyDiv: {
-    padding: theme.spacing.unit,
-    borderColor: theme.palette.secondary.main,
-    borderStyle: 'solid',
-    borderWidth: '0 0 0 5px',
-    backgroundColor: theme.palette.primary.main,
-    paddingLeft: theme.spacing.unit * 2,
-
-    marginTop: theme.spacing.unit * 3,
   },
   contactsDiv: {
     display: 'flex',
@@ -149,10 +140,7 @@ export class PartnerPage extends React.Component {
           </Typography>
           <br />
           {messages.textContent.testimonies.map(testimony => (
-            <div className={classes.testimonyDiv}>
-              <Typography paragraph>{testimony.testimony}</Typography>
-              <Typography paragraph>- {testimony.source}</Typography>
-            </div>
+            <Quote author={testimony.testimony} text={testimony.source} />
           ))}
           <br />
           <br />
