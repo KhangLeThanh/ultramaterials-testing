@@ -15,7 +15,7 @@ import Quote from 'components/Quote';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { Link } from 'react-router-dom';
-import { Typography, Paper, withStyles, Grid, Button } from '@material-ui/core';
+import { Typography, Paper, withStyles, Button } from '@material-ui/core';
 
 import makeSelectParticipantPage from './selectors';
 import reducer from './reducer';
@@ -24,16 +24,13 @@ import messages from './messages';
 
 const styles = theme => ({
   root: {
-    maxWidth: 1000,
+    maxWidth: 1200,
     margin: '0 auto',
   },
   box: {
     paddingTop: theme.spacing.unit * 6,
     paddingBottom: theme.spacing.unit * 6,
-  },
-  cards: {
-    flexGrow: 1,
-    margin: '0 50px',
+    margin: theme.spacing.unit,
   },
   paper: {
     display: 'flex',
@@ -44,6 +41,8 @@ const styles = theme => ({
     color: theme.palette.primary.main,
     background: theme.palette.primary.dark,
     minHeight: 300,
+    maxWidth: 300,
+    margin: 10,
   },
   link: {
     textDecoration: 'none',
@@ -52,6 +51,16 @@ const styles = theme => ({
     '&:hover': {
       color: theme.palette.secondary.main,
     },
+  },
+  listSection: {
+    paddingTop: theme.spacing.unit * 8,
+  },
+  list: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    margin: '0 auto',
   },
 });
 
@@ -83,22 +92,20 @@ export class ParticipantPage extends React.Component {
         </div>
 
         <div className={classes.box}>
-          <div className={classes.cards}>
-            <Typography variant="h3" gutterBottom>
-              Reasons to become an Ultrahacker
-            </Typography>
-            <Grid container spacing={24}>
+          <Typography variant="h3" gutterBottom>
+            Reasons to become an Ultrahacker
+          </Typography>
+          <div className={classes.listSection}>
+            <div className={classes.list}>
               {messages.cards.map(card => (
-                <Grid item xs={4}>
-                  <Paper className={classes.paper}>
-                    <Typography variant="h4" gutterBottom>
-                      {card.header}
-                    </Typography>
-                    <Typography paragraph>{card.text}</Typography>
-                  </Paper>
-                </Grid>
+                <Paper className={classes.paper}>
+                  <Typography variant="h4" gutterBottom>
+                    {card.header}
+                  </Typography>
+                  <Typography paragraph>{card.text}</Typography>
+                </Paper>
               ))}
-            </Grid>
+            </div>
           </div>
         </div>
 
@@ -109,7 +116,6 @@ export class ParticipantPage extends React.Component {
           {messages.quotes.map(quote => (
             <div>
               <Quote author={quote.source} text={quote.text} />
-              <br />
             </div>
           ))}
         </div>
