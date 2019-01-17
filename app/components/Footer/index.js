@@ -6,6 +6,7 @@
 
 import React from 'react';
 import { withStyles, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 // import fa icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -77,38 +78,26 @@ class Footer extends React.Component {
           <div className={classes.paper}>
             <div className={classes.text}>
               <Typography>
-                <a
-                  className={classes.link}
-                  href="https://ultrahack.org/about-us"
-                >
+                <Link to="/about" className={classes.link}>
                   About us
-                </a>
+                </Link>
               </Typography>
 
               <Typography>
-                <a
-                  className={classes.link}
-                  href="https://ultrahack.org/terms-of-service"
-                >
+                <Link to="/terms-of-service" className={classes.link}>
                   Terms of Service
-                </a>
+                </Link>
               </Typography>
               <Typography>
-                <a
-                  className={classes.link}
-                  href="https://ultrahack.org/privacy-policy"
-                >
+                <Link to="/privacy-policy" className={classes.link}>
                   Privacy Policy
-                </a>
+                </Link>
               </Typography>
 
               <Typography>
-                <a
-                  className={classes.link}
-                  href="https://ultrahack.org/cookie-policy"
-                >
+                <Link to="/cookie-policy" className={classes.link}>
                   Cookie Policy
-                </a>
+                </Link>
               </Typography>
 
               <Typography>
