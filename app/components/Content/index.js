@@ -14,11 +14,14 @@ import { withStyles } from '@material-ui/core';
 
 import PropTypes from 'prop-types';
 
-const styles = {
+const styles = theme => ({
   root: {
     minHeight: 'calc(100vh - 153px)',
   },
-};
+  content: {
+    padding: theme.spacing.unit * 2,
+  },
+});
 
 /* eslint-disable react/prefer-stateless-function */
 class Content extends React.Component {
