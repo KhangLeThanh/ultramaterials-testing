@@ -13,8 +13,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withStyles } from '@material-ui/core/styles';
-import { Typography, Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Typography, Button, Grid, withStyles } from '@material-ui/core';
 import YoutubeBackground from 'react-youtube-background';
 
 const styles = theme => ({
@@ -71,15 +71,19 @@ export class HomePage extends React.PureComponent {
                 variant="contained"
                 color="primary"
                 className={classes.button}
+                component={Link}
+                to="/partner"
               >
-                Primary
+                For Partners
               </Button>
               <Button
                 variant="contained"
                 color="secondary"
                 className={classes.button}
+                component={Link}
+                to="/dashboard"
               >
-                Secondary
+                Apply to Hackathons
               </Button>
             </div>
           </div>
