@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
 import { Typography, Button, Grid } from '@material-ui/core';
+import YoutubeBackground from 'react-youtube-background';
 
 const styles = theme => ({
   root: {
@@ -22,10 +23,17 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
+    zIndex: 1,
   },
   buttonBox: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  videoBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    height: 'calc(100vw * .5625)', // 9:16=.5625 (aspect ratio = 16:9)
   },
   grid: {
     maxWidth: 900,
@@ -35,20 +43,6 @@ const styles = theme => ({
     padding: theme.spacing.unit * 4,
     textAlign: 'left',
     color: theme.palette.text.primary,
-  },
-  homeBanner: {
-    height: 500,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundImage:
-      'linear-gradient(black, black), url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EvVhCC0deijtsl1b4/videoblocks-binary-computer-code-background-motion-graphic-animation-computer-generated-seamless-loop_r2orby0ng_thumbnail-full01.png)',
-    background: {
-      repeat: 'no-repeat',
-      position: 'center',
-      size: ['100%', '100%'],
-    },
-    backgroundBlendMode: 'saturation',
   },
   redBox: {
     backgroundColor: 'transparent',
@@ -69,24 +63,27 @@ export class HomePage extends React.PureComponent {
 
     return (
       <div className={classes.root}>
-        <div className={classes.homeBanner}>
-          <div className={classes.buttonBox}>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-            >
-              Primary
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-            >
-              Secondary
-            </Button>
+        <YoutubeBackground videoId="mQJvyhlJZDg" overlay="rgba(0,0,0,.4)">
+          {/* YOUR CONTENT */}
+          <div className={classes.videoBox}>
+            <div className={classes.buttonBox}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+              >
+                Primary
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Secondary
+              </Button>
+            </div>
           </div>
-        </div>
+        </YoutubeBackground>
         <div className={classes.redBox}>
           <div className={classes.grid}>
             <Grid container spacing={0}>
