@@ -81,7 +81,7 @@ export class HomePage extends React.PureComponent {
                 color="secondary"
                 className={classes.button}
                 component={Link}
-                to="/dashboard"
+                to="/participate"
               >
                 Apply to Hackathons
               </Button>
