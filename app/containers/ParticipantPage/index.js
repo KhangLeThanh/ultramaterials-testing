@@ -62,6 +62,9 @@ const styles = theme => ({
     flexWrap: 'wrap',
     margin: '0 auto',
   },
+  button: {
+    textAlign: 'center',
+  },
 });
 
 /* eslint-disable react/prefer-stateless-function */
@@ -75,24 +78,27 @@ export class ParticipantPage extends React.Component {
           <meta name="description" content="Description of ParticipantPage" />
         </Helmet>
         <div className={classes.box}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             HACK CHALLENGES FROM LEADING INDUSTRIES
           </Typography>
           {messages.paragraphs.map(text => (
             <Typography paragraph>{text}</Typography>
           ))}
-          <Button
-            variant="contained"
-            color="secondary"
-            component={Link}
-            to="/challenges"
-          >
-            Go to challenges
-          </Button>
+
+          <div className={classes.button}>
+            <Button
+              variant="contained"
+              color="secondary"
+              component={Link}
+              to="/challenges"
+            >
+              Go to challenges
+            </Button>
+          </div>
         </div>
 
         <div className={classes.box}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             Reasons to become an Ultrahacker
           </Typography>
           <div className={classes.listSection}>
@@ -110,7 +116,7 @@ export class ParticipantPage extends React.Component {
         </div>
 
         <div className={classes.box}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             What our community says:
           </Typography>
           {messages.quotes.map(quote => (
