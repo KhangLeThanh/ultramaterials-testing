@@ -25,7 +25,7 @@ export class ParticipantPage extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>ParticipantPage</title>
+          <title>Ultrahack | Participate</title>
           <meta name="description" content="Description of ParticipantPage" />
         </Helmet>
         <FormattedMessage {...messages.header} />

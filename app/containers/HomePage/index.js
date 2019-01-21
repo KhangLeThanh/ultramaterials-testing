@@ -13,8 +13,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withStyles } from '@material-ui/core/styles';
-import { Typography, Button, Grid } from '@material-ui/core';
+import { Helmet } from 'react-helmet';
+import { Typography, Button, Grid, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -69,6 +69,9 @@ export class HomePage extends React.PureComponent {
 
     return (
       <div className={classes.root}>
+        <Helmet>
+          <title>Ultrahack | Home</title>
+        </Helmet>
         <div className={classes.homeBanner}>
           <div className={classes.buttonBox}>
             <Button
