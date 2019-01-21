@@ -44,10 +44,14 @@ class Content extends React.Component {
           <Route exact path="/volunteer" component={VolunteeringPage} />
           <Route exact path="/participate" component={ParticipantPage} />
           <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/press" component={PressMaterialPage} />
-          <Route exact path="/cookies" component={CookiePolicyPage} />
-          <Route exact path="/privacy" component={PrivacyPolicyPage} />
-          <Route exact path="/terms" component={TermsOfServicePage} />
+          <Route exact path="/press-material" component={PressMaterialPage} />
+          <Route exact path="/cookie-policy" component={CookiePolicyPage} />
+          <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
+          <Route
+            exact
+            path="/terms-of-service"
+            component={TermsOfServicePage}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
