@@ -9,6 +9,7 @@ import DashboardPage from 'containers/DashboardPage/Loadable';
 import PartnerPage from 'containers/PartnerPage/Loadable';
 import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
 import ParticipantPage from 'containers/ParticipantPage/Loadable';
+import AboutPage from 'containers/AboutPage/Loadable';
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 
@@ -38,6 +39,7 @@ class Content extends React.Component {
           <Route exact path="/partner" component={PartnerPage} />
           <Route exact path="/volunteer" component={VolunteeringPage} />
           <Route exact path="/participate" component={ParticipantPage} />
+          <Route exact path="/about" component={AboutPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
