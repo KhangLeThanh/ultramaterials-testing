@@ -74,7 +74,7 @@ export class ParticipantPage extends React.Component {
     return (
       <div className={classes.root}>
         <Helmet>
-          <title>Participate</title>
+          <title>Ultrahack | Participate</title>
           <meta name="description" content="Description of ParticipantPage" />
         </Helmet>
         <div className={classes.box}>

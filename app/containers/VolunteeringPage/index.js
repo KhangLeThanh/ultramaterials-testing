@@ -51,7 +51,7 @@ export class VolunteeringPage extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>Volunteering</title>
+          <title>Ultrahack | Volunteering</title>
           <meta name="description" content="Description of VolunteeringPage" />
         </Helmet>
         <div className={classes.root}>

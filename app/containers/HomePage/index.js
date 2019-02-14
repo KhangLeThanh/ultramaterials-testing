@@ -13,6 +13,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Typography, Button, Grid, withStyles } from '@material-ui/core';
 import YoutubeBackground from 'react-youtube-background';
@@ -63,8 +64,10 @@ export class HomePage extends React.PureComponent {
 
     return (
       <div className={classes.root}>
+        <Helmet>
+          <title>Ultrahack | Home</title>
+        </Helmet>
         <YoutubeBackground videoId="mQJvyhlJZDg" overlay="rgba(0,0,0,.4)">
-          {/* YOUR CONTENT */}
           <div className={classes.videoBox}>
             <div className={classes.buttonBox}>
               <Button

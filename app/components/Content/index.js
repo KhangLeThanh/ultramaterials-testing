@@ -10,6 +10,10 @@ import PartnerPage from 'containers/PartnerPage/Loadable';
 import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
 import ParticipantPage from 'containers/ParticipantPage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
+import PressMaterialPage from 'containers/PressMaterialPage/Loadable';
+import CookiePolicyPage from 'containers/CookiePolicyPage/Loadable';
+import PrivacyPolicyPage from 'containers/PrivacyPolicyPage/Loadable';
+import TermsOfServicePage from 'containers/TermsOfServicePage/Loadable';
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 
@@ -40,6 +44,14 @@ class Content extends React.Component {
           <Route exact path="/volunteer" component={VolunteeringPage} />
           <Route exact path="/participate" component={ParticipantPage} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/press-material" component={PressMaterialPage} />
+          <Route exact path="/cookie-policy" component={CookiePolicyPage} />
+          <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
+          <Route
+            exact
+            path="/terms-of-service"
+            component={TermsOfServicePage}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
