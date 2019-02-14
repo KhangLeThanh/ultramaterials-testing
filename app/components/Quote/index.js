@@ -29,8 +29,8 @@ class Quote extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
+        <Typography paragraph>{this.props.text}</Typography>
         <Typography paragraph>{this.props.author}</Typography>
-        <Typography paragraphs>{this.props.text}</Typography>
       </div>
     );
   }
