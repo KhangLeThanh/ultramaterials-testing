@@ -68,6 +68,9 @@ const styles = theme => ({
       display: 'block',
     },
   },
+  popper: {
+    zIndex: 1,
+  },
 });
 
 /* eslint-disable react/prefer-stateless-function */
@@ -149,6 +152,7 @@ export class Header extends React.Component {
                 {open ? <ClearIcon /> : <MenuIcon />}
               </IconButton>
               <Popper
+                className={classes.popper}
                 open={open}
                 anchorEl={this.anchorEl}
                 transition
