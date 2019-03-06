@@ -69,7 +69,7 @@ const styles = theme => ({
     },
   },
   popper: {
-    zIndex: 1,
+    zIndex: 2,
   },
 });
 
