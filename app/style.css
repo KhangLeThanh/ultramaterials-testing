@@ -31,3 +31,7 @@ html {
   min-height: 100%;
   min-width: 100%;
 }
+
+::selection{
+  background: #ff0000;
+}

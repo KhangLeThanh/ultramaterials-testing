@@ -1,3 +1,12 @@
+# Welcome to UtraMaterials project
+
+Staging server is at [https://amp.ultrahacker.click](https://amp.ultrahacker.click)
+
+Any commit to the master branch is built with AWS Amplify service and deployed as "production build" to the staging server within a few minutes. For now. Later we can have this set that master deploys to the ultrahack.org, and some other branch deploys to staging server before merge.
+
+Build events are automatically logged to the [https://trello.com/b/mDQo7qAL/ultrahack-web-platform](https://trello.com/b/mDQo7qAL/ultrahack-web-platform) trello board.
+
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />

@@ -23,7 +23,7 @@ export class DashboardPage extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>DashboardPage</title>
+          <title>Ultrahack | Dashboard</title>
           <meta name="description" content="Description of DashboardPage" />
         </Helmet>
         <AdminPanel />

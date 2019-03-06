@@ -9,11 +9,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { withStyles } from '@material-ui/core/styles';
 
+import { Helmet } from 'react-helmet';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { Typography } from '@material-ui/core';
+import { Typography, withStyles } from '@material-ui/core';
 import makeSelectChallengesPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -59,6 +59,9 @@ export class ChallengesPage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
+        <Helmet>
+          <title>Ultrahack | Challenges</title>
+        </Helmet>
         <div className={classes.headerSection}>
           <div className={classes.grid}>
             <Typography variant="h2" gutterBottom>
