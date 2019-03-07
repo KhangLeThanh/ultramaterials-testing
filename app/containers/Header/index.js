@@ -42,9 +42,9 @@ const styles = theme => ({
     flexGrow: 1,
   },
   logo: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    height: '24px',
+    [theme.breakpoints.up('md')]: {
+      height: 'auto',
     },
   },
   toolBar: {
