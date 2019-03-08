@@ -9,23 +9,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { withStyles } from '@material-ui/core/styles';
 
 import { Link } from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import ClearIcon from '@material-ui/icons/Clear';
 import {
-  MenuList,
-  MenuItem,
-  Grow,
-  ClickAwayListener,
-  Popper,
-  Paper,
+  withStyles,
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+  SwipeableDrawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemText,
 } from '@material-ui/core';
 
 import injectReducer from 'utils/injectReducer';
@@ -68,8 +66,8 @@ const styles = theme => ({
       display: 'block',
     },
   },
-  popper: {
-    zIndex: 2,
+  list: {
+    width: 250,
   },
 });
 
@@ -77,26 +75,44 @@ const styles = theme => ({
 export class Header extends React.Component {
   state = {
     auth: true,
-    open: false,
+    right: false,
   };
 
-  handleToggle = () => {
-    this.setState(state => ({ open: !state.open }));
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open,
+    });
   };
-
-  handleClose = event => {
-    if (this.anchorEl.contains(event.target)) {
-      return;
-    }
-
-    this.setState({ open: false });
-  };
-
-  renderLink = to => <Link to={to} />;
 
   render() {
     const { classes } = this.props;
-    const { auth, open } = this.state;
+    const { auth } = this.state;
+
+    const sideList = (
+      <div className={classes.list}>
+        <List>
+          {[['Home', '/']].map(text => (
+            <ListItem button component={Link} to={text[1]} key={text[0]}>
+              <ListItemText primary={text[0]} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {[
+            ['Partnering', '/partner'],
+            ['Participate', '/participate'],
+            ['Volunteering', '/volunteer'],
+            ['Challenges', '/challenges'],
+            ['About', '/about'],
+          ].map(text => (
+            <ListItem button component={Link} to={text[1]} key={text[0]}>
+              <ListItemText primary={text[0]} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    );
 
     return (
       <div className={classes.root}>
@@ -142,75 +158,25 @@ export class Header extends React.Component {
               <IconButton
                 className={classes.menuButton}
                 aria-label="Menu"
-                buttonRef={node => {
-                  this.anchorEl = node;
-                }}
-                aria-owns={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={this.handleToggle}
+                onClick={this.toggleDrawer('right', true)}
               >
-                {open ? <ClearIcon /> : <MenuIcon />}
+                <MenuIcon />
               </IconButton>
-              <Popper
-                className={classes.popper}
-                open={open}
-                anchorEl={this.anchorEl}
-                transition
-                disablePortal
+              <SwipeableDrawer
+                anchor="right"
+                open={this.state.right}
+                onClose={this.toggleDrawer('right', false)}
+                onOpen={this.toggleDrawer('right', true)}
               >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    id="menu-list-grow"
-                    style={{
-                      transformOrigin:
-                        placement === 'bottom' ? 'center top' : 'center bottom',
-                    }}
-                  >
-                    <Paper>
-                      <ClickAwayListener onClickAway={this.handleClose}>
-                        <MenuList>
-                          <MenuItem
-                            onClick={this.handleClose}
-                            component={Link}
-                            to="/partner"
-                          >
-                            Partner
-                          </MenuItem>
-                          <MenuItem
-                            onClick={this.handleClose}
-                            component={Link}
-                            to="/participate"
-                          >
-                            Participate
-                          </MenuItem>
-                          <MenuItem
-                            onClick={this.handleClose}
-                            component={Link}
-                            to="/volunteer"
-                          >
-                            Volunteer
-                          </MenuItem>
-                          <MenuItem
-                            onClick={this.handleClose}
-                            component={Link}
-                            to="/challenges"
-                          >
-                            Challenges
-                          </MenuItem>
-                          <MenuItem
-                            onClick={this.handleClose}
-                            component={Link}
-                            to="/about"
-                          >
-                            About
-                          </MenuItem>
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  onClick={this.toggleDrawer('right', false)}
+                  onKeyDown={this.toggleDrawer('right', false)}
+                >
+                  {sideList}
+                </div>
+              </SwipeableDrawer>
             </div>
           </Toolbar>
         </AppBar>
