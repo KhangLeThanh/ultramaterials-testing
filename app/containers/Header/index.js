@@ -11,22 +11,11 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import { Link } from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import {
-  withStyles,
-  AppBar,
-  Toolbar,
-  Button,
-  IconButton,
-  SwipeableDrawer,
-  List,
-  Divider,
-  ListItem,
-  ListItemText,
-} from '@material-ui/core';
+import { withStyles, AppBar, Toolbar, Button } from '@material-ui/core';
 
 import injectReducer from 'utils/injectReducer';
+import Drawer from 'components/Drawer/Loadable';
 import makeSelectHeader from './selectors';
 import reducer from './reducer';
 
@@ -51,12 +40,6 @@ const styles = theme => ({
   appBar: {
     backgroundColor: 'transparent',
   },
-  menuButton: {
-    display: 'block',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
   loginButton: {
     background: theme.palette.secondary,
   },
@@ -66,53 +49,17 @@ const styles = theme => ({
       display: 'block',
     },
   },
-  list: {
-    width: 250,
-  },
 });
 
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
   state = {
     auth: true,
-    right: false,
-  };
-
-  toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open,
-    });
   };
 
   render() {
     const { classes } = this.props;
     const { auth } = this.state;
-
-    const sideList = (
-      <div className={classes.list}>
-        <List>
-          {[['Home', '/']].map(text => (
-            <ListItem button component={Link} to={text[1]} key={text[0]}>
-              <ListItemText primary={text[0]} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {[
-            ['Partnering', '/partner'],
-            ['Participate', '/participate'],
-            ['Volunteering', '/volunteer'],
-            ['Challenges', '/challenges'],
-            ['About', '/about'],
-          ].map(text => (
-            <ListItem button component={Link} to={text[1]} key={text[0]}>
-              <ListItemText primary={text[0]} />
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    );
 
     return (
       <div className={classes.root}>
@@ -154,30 +101,7 @@ export class Header extends React.Component {
             ) : (
               <Button className={classes.loginButton}>Login</Button>
             )}
-            <div>
-              <IconButton
-                className={classes.menuButton}
-                aria-label="Menu"
-                onClick={this.toggleDrawer('right', true)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <SwipeableDrawer
-                anchor="right"
-                open={this.state.right}
-                onClose={this.toggleDrawer('right', false)}
-                onOpen={this.toggleDrawer('right', true)}
-              >
-                <div
-                  tabIndex={0}
-                  role="button"
-                  onClick={this.toggleDrawer('right', false)}
-                  onKeyDown={this.toggleDrawer('right', false)}
-                >
-                  {sideList}
-                </div>
-              </SwipeableDrawer>
-            </div>
+            <Drawer />
           </Toolbar>
         </AppBar>
       </div>
