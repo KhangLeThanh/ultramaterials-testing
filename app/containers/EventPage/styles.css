@@ -10,15 +10,13 @@ img.challenge-banner {
 
 }  
 .banner-image:before {
-  background-color: rgba(206, 0, 44,0.15);
+  background-color: rgba(0, 0, 0,0.35);
   content: " ";
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
-  display: block;
-  z-index: 0;
 }
 .wrapper-content-banner {
   padding-top: 10em;
@@ -27,8 +25,17 @@ img.challenge-banner {
 }
 .wrapper-content-banner h2,.wrapper-content-banner h3{
   margin-bottom: 20px;
+  z-index: 99999;
+  position: relative;
 }
-
+.wrapper-content-banner h2{
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.wrapper-content-banner h3{
+  font-size: 2rem;
+}
 .info-event{
   padding-left: 10% !important;
   padding-top: 15% !important;
@@ -100,7 +107,7 @@ img.challenge-banner {
     font-size:2.75rem;
   }
   .wrapper-content-banner h3{
-    font-size:2rem;
+    font-size:1.8rem;
   }
   .button-event{
     min-width: 150px;
