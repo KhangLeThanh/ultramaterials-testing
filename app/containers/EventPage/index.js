@@ -37,16 +37,32 @@ const styles = theme => ({
     padding: '0px 8px',
   },
   paper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     padding: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
+    textAlign: 'center',
+    color: theme.palette.primary.main,
+    background: theme.palette.primary.dark,
+    minHeight: 300,
+    maxWidth: 300,
+    margin: 10,
   },
   box: {
     paddingTop: 0,
     marginBottom: theme.spacing.unit * 2,
     textAlign: 'left',
     color: theme.palette.text.secondary,
+  },
+  listSection: {
+    paddingTop: theme.spacing.unit * 8,
+  },
+  list: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    margin: '0 auto',
   },
   button: {
     textAlign: 'center',
@@ -204,13 +220,13 @@ export class EventPage extends React.Component {
             </Grid>
           </Grid>
         </div>
-        <div className={classes.grid}>
+        <div className={classes.box}>
           <div className="wrapper-faq-event">
             <Typography variant="h3" gutterBottom>
               Frequently Asked Questions
             </Typography>
-            <Grid container spacing={16} className={classes.cardGrid}>
-              <Grid item xs={12} sm={6}>
+            <div className={classes.listSection}>
+              <div className={classes.list}>
                 <Paper className={classes.paper}>
                   <Typography
                     component="h5"
@@ -229,8 +245,6 @@ export class EventPage extends React.Component {
                     intensively on software projects.
                   </Typography>
                 </Paper>
-              </Grid>
-              <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
                   <Typography
                     component="h5"
@@ -249,10 +263,6 @@ export class EventPage extends React.Component {
                     intensively on software projects.
                   </Typography>
                 </Paper>
-              </Grid>
-            </Grid>
-            <Grid container spacing={16} className={classes.cardGrid}>
-              <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
                   <Typography
                     component="h5"
@@ -271,8 +281,6 @@ export class EventPage extends React.Component {
                     intensively on software projects.
                   </Typography>
                 </Paper>
-              </Grid>
-              <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
                   <Typography
                     component="h5"
@@ -291,11 +299,11 @@ export class EventPage extends React.Component {
                     intensively on software projects.
                   </Typography>
                 </Paper>
-              </Grid>
-            </Grid>
-            <hr />
+              </div>
+            </div>
           </div>
         </div>
+        <hr />
       </div>
     );
   }

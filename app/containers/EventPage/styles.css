@@ -61,7 +61,10 @@ img.challenge-banner {
   text-align:center;
 }
 .wrapper-faq-event h5{
-  text-align: left;
+  text-align: center;
+}
+.wrapper-faq-event div hr{
+  width: 50%;
 }
 @media only screen and (max-width: 1200px) {
   .left-text-event{
