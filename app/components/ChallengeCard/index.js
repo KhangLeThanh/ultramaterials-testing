@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 
 import {
   Card,
@@ -37,7 +38,7 @@ const styles = theme => ({
 
 function ChallengeCard(props) {
   const handleClick = () => {
-    props.history.push('/challenge');
+    props.history.push(`/challenge/${props.id}`);
   };
 
   const { title, description, deadline, media } = props; // add link later
@@ -48,7 +49,7 @@ function ChallengeCard(props) {
         <CardActionArea onClick={handleClick}>
           <CardMedia
             className={classes.media}
-            image={media}
+            image={`http://localhost:1337/${media.url}`}
             title="Contemplative Reptile"
           />
           <CardHeader
@@ -58,7 +59,7 @@ function ChallengeCard(props) {
             }}
             className={classes.header}
             title={title}
-            subheader={`${deadline.getDay()}.${deadline.getMonth()}.${deadline.getFullYear()}`}
+            subheader={moment(deadline).format('MMM Do YY')}
           />
           <Divider />
           <CardContent>
@@ -75,10 +76,11 @@ function ChallengeCard(props) {
 ChallengeCard.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  deadline: PropTypes.object.isRequired,
-  media: PropTypes.string.isRequired,
-  description: PropTypes.isRequired,
+  deadline: PropTypes.string.isRequired,
+  media: PropTypes.object.isRequired,
+  description: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default withRouter(withStyles(styles)(ChallengeCard));

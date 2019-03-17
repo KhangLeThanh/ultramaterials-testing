@@ -9,6 +9,7 @@ import DashboardPage from 'containers/DashboardPage/Loadable';
 import PartnerPage from 'containers/PartnerPage/Loadable';
 import VolunteeringPage from 'containers/VolunteeringPage/Loadable';
 import ParticipantPage from 'containers/ParticipantPage/Loadable';
+import EventPage from 'containers/EventPage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
 import PressMaterialPage from 'containers/PressMaterialPage/Loadable';
 import CookiePolicyPage from 'containers/CookiePolicyPage/Loadable';
@@ -38,8 +39,9 @@ class Content extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/challenges" component={ChallengesPage} />
-          <Route exact path="/challenge" component={ChallengePage} />
+          <Route exact path="/challenge/:id" component={ChallengePage} />
           <Route exact path="/dashboard" component={DashboardPage} />
+          <Route exact path="/eventx2019" component={EventPage} />
           <Route exact path="/partner" component={PartnerPage} />
           <Route exact path="/volunteer" component={VolunteeringPage} />
           <Route exact path="/participate" component={ParticipantPage} />

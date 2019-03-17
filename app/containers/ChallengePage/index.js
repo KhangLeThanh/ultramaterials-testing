@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-
+import moment from 'moment';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { withStyles } from '@material-ui/core/styles';
@@ -50,7 +50,6 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
-
 /* eslint-disable react/prefer-stateless-function */
 export class ChallengePage extends React.Component {
   state = {
@@ -60,9 +59,11 @@ export class ChallengePage extends React.Component {
       deadline: '13.12.2018',
       location: 'Location info',
       prize: 'price info',
+      title: 'Title Challenge',
     },
     resources: 'resource information',
     faq: 'frequently asked questions here',
+    details: 'details information',
     header:
       'https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg?cs=srgb&dl=architecture-buildings-city-533930.jpg&fm=jpg',
   };
@@ -70,6 +71,27 @@ export class ChallengePage extends React.Component {
   handleChange = (event, value) => {
     this.setState({ value });
   };
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        `http://localhost:1337/challenges/${this.props.match.params.id}`,
+      );
+      const challengelist = await response.json();
+      this.setState({
+        info: {
+          starts: challengelist.date,
+          deadline: challengelist.deadline,
+          location: challengelist.location,
+          prize: challengelist.prize,
+          title: challengelist.title,
+        },
+        details: challengelist.details,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   render() {
     const { classes } = this.props;
@@ -87,15 +109,17 @@ export class ChallengePage extends React.Component {
             <Grid container spacing={16}>
               <Grid item xs={12} sm={3}>
                 <Paper className={classes.paper}>
-                  <Typography variant="h4">Info</Typography>
+                  <Typography className="title-challenge" variant="h4">
+                    {this.state.info.title}
+                  </Typography>
                   <hr />
                   <Typography variant="body2">
                     <i className="far fa-clock" /> Deadline:{' '}
-                    {this.state.info.deadline}
+                    {moment(this.state.info.deadline).format('MMM Do YY')}
                   </Typography>
                   <Typography variant="body2">
                     <i className="far fa-calendar-alt" />{' '}
-                    {this.state.info.starts}
+                    {moment(this.state.info.starts).format('MMM Do YY')}
                   </Typography>
                   <Typography variant="body2">
                     <i className="fas fa-map-marker-alt" />{' '}
@@ -117,48 +141,7 @@ export class ChallengePage extends React.Component {
                   </AppBar>
                   {value === 0 && (
                     <TabContainer>
-                      <Typography>
-                        Policymaker resilient, targeted entrepreneur rubric;
-                        fairness do-gooder strategize social innovation
-                        low-hanging fruit NGO; natural resources targeted
-                        empathetic. To, benefit corporation efficient; optimism
-                        boots on the ground mobilize collaborative cities NGO
-                        scalable circular peaceful collective impact social
-                        capital. Society, shared value; framework agile big data
-                        social entrepreneur support humanitarian then, the
-                        program areas collaborative cities the resistance
-                        catalyze. Innovation, empower communities collaborate
-                        co-creation when communities. Innovate; collaborative
-                        cities unprecedented challenge when silo segmentation
-                        replicable social innovation white paper triple bottom
-                        line. Unprecedented challenge invest policymaker;
-                        efficient citizen-centered; engaging fairness.
-                      </Typography>
-
-                      <Typography>
-                        Issue outcomes, human-centered, overcome injustice
-                        milestones; accessibility white paper human-centered. A
-                        outcomes leverage leverage innovate outcomes data.
-                        Vibrant vibrant synergy; inspiring ecosystem empower
-                        inspiring, do-gooder inspiring, capacity building,
-                        living a fully ethical life the resistance technology.
-                      </Typography>
-                      <Typography>
-                        We must stand up incubator collective impact parse
-                        compelling but. Compelling state of play communities
-                        granular equal opportunity empathetic framework
-                        bandwidth. Communities social entrepreneur, transparent,
-                        paradigm, rubric social entrepreneur empathetic
-                        change-makers granular state of play scalable. Systems
-                        thinking, optimism grit do-gooder replicable preliminary
-                        thinking. Expose the truth, to save the world shared
-                        unit of analysis challenges and opportunities commitment
-                        activate movements shared unit of analysis resist
-                        changemaker. Families humanitarian incubator
-                        unprecedented challenge; triple bottom line, technology
-                        invest, society equal opportunity segmentation progress
-                        scale and impact benefit corporation.
-                      </Typography>
+                      <Typography>{this.state.details}</Typography>
                     </TabContainer>
                   )}
                   {value === 1 && (
@@ -204,6 +187,7 @@ export class ChallengePage extends React.Component {
 
 ChallengePage.propTypes = {
   classes: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

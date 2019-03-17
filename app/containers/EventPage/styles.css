@@ -1,0 +1,112 @@
+img.challenge-banner {
+    width: 100%;
+    height: 400px;
+  }
+.banner-image{
+  background-image: url("https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg?cs=srgb&dl=architecture-buildings-city-533930.jpg&fm=jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+
+}  
+.banner-image:before {
+  background-color: rgba(206, 0, 44,0.15);
+  content: " ";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  z-index: 0;
+}
+.wrapper-content-banner {
+  padding-top: 10em;
+  padding-bottom: 10em;
+  text-align: center;
+}
+.wrapper-content-banner h2,.wrapper-content-banner h3{
+  margin-bottom: 20px;
+}
+
+.info-event{
+  padding-left: 10% !important;
+  padding-top: 15% !important;
+  padding-bottom: 15% !important;
+  padding-right: 20% !important;
+}
+.left-text-event{
+  padding-left: 20% !important;
+  padding-right: 10% !important;
+}
+.info-event h1{
+  margin-bottom: 15px;
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+.info-event p{
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+.button-event{
+  font-size:1.3rem;
+  min-width: 300px;
+  font-weight:600;
+}
+.wrapper-faq-event {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+.wrapper-faq-event h3{
+  text-align:center;
+}
+.wrapper-faq-event h5{
+  text-align: left;
+}
+@media only screen and (max-width: 1200px) {
+  .left-text-event{
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .info-event h1{
+    font-size: 2.5rem;
+  }
+  .info-event p{
+    font-size: 1rem;
+    
+  }
+}
+@media only screen and (max-width: 967px) {
+  .info-event{
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+    text-align: center;
+  }
+
+}  
+@media only screen and (max-width: 768px) {
+  
+  .wrapper-content-banner {
+    padding-top: 5em;
+    padding-bottom: 5em;
+    text-align: center;
+  }
+  .wrapper-content-banner h2{
+    font-size:2.75rem;
+  }
+  .wrapper-content-banner h3{
+    font-size:2rem;
+  }
+  .button-event{
+    min-width: 150px;
+  }
+  .info-event{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+  }
+  img.challenge-banner {
+    height: 150px;
+  }
+}

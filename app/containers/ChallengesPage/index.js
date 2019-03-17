@@ -43,20 +43,27 @@ const styles = theme => ({
   },
 });
 
-const challenge = {
-  title: 'Challenge title',
-  description:
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio vel accusamus officia rem quod alias, velit, placeat fugiat eos harum officiis perspiciatis accusantium animi recusandae minus inventore tempore hic quam odit doloremque dolore? Placeat consequuntur necessitatibus, magni iure cum eum, error nisi sed ipsum eius quo? Porro provident iusto asperiores?',
-  link: '/challenge',
-  media:
-    'https://www.standardmedia.co.ke/images/saturday/thumb_hwpk4gfklavs8g5a91d20395887.jpg',
-  deadline: new Date(),
-};
-
 /* eslint-disable react/prefer-stateless-function */
 export class ChallengesPage extends React.Component {
+  state = {
+    challengelist: [],
+  };
+
+  async componentDidMount() {
+    try {
+      const response = await fetch('http://localhost:1337/challenges');
+      const challengelist = await response.json();
+      this.setState({
+        challengelist,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   render() {
     const { classes } = this.props;
+
     return (
       <div className={classes.root}>
         <Helmet>
@@ -86,13 +93,11 @@ export class ChallengesPage extends React.Component {
         </div>
         <div className={classes.listSection}>
           <div className={classes.list}>
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
-            <ChallengeCard {...challenge} />
+            {this.state.challengelist.map(challenge => (
+              <span key={challenge.id}>
+                <ChallengeCard {...challenge} />
+              </span>
+            ))}
           </div>
         </div>
       </div>
