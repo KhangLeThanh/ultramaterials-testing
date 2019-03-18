@@ -92,7 +92,7 @@ export class EventPage extends React.Component {
     },
     second_image:
       'https://ultrahack.org/images/challenges/uh2019s2-publicservices.jpg',
-    header: 'https://ultrahack.org/images/challenges/open.jpeg',
+    header: 'https://ultrahack.org/images/challenges/uh2019s2-open.jpg',
   };
 
   render() {
@@ -212,7 +212,7 @@ export class EventPage extends React.Component {
                 <Hidden smDown>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://ultrahack.org/images/challenges/open.jpeg" // eslint-disable-line max-len
+                    image="https://ultrahack.org/images/challenges/uh2019s2-open.jpg" // eslint-disable-line max-len
                     title="Image title"
                   />
                 </Hidden>
